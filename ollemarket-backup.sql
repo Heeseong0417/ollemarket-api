@@ -15,11 +15,11 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 
--- ollemarket 데이터베이스 구조 내보내기
-CREATE DATABASE IF NOT EXISTS `ollemarket` /*!40100 DEFAULT CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci */;
-USE `ollemarket`;
+-- OlleMetaGame 데이터베이스 구조 내보내기
+CREATE DATABASE IF NOT EXISTS `OlleMetaGame` /*!40100 DEFAULT CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci */;
+USE `OlleMetaGame`;
 
--- 테이블 ollemarket.marketlist 구조 내보내기
+-- 테이블 OlleMetaGame.marketlist 구조 내보내기
 CREATE TABLE IF NOT EXISTS `marketlist` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `shopname` varchar(255) DEFAULT NULL,
@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `marketlist` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=295 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- 테이블 데이터 ollemarket.marketlist:~261 rows (대략적) 내보내기
+-- 테이블 데이터 OlleMetaGame.marketlist:~261 rows (대략적) 내보내기
 REPLACE INTO `marketlist` (`id`, `shopname`, `ceo`, `gate`, `phonenumber`, `address`, `ollehnum`, `homepage`, `info`, `item`, `imageUrl`, `tag`, `shoppage`) VALUES
 	(1, '남성크로커다일', '사람32', '1', '010-0101-0132', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 205, 'https://tagdetail.com/v/LlH_4dPFIwN', '안녕하세요. 남성크로커다일입니다.', '#32를 팝니다.', 'http://localhost:8092/file/images/001.jpeg', '생활잡화', 'http://118.67.128.240:4232/jejumarket'),
 	(2, '서울약국', '사람31', '1', '010-0101-0131', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 204, 'https://tagdetail.com/v/atfHfFZQeB4', '안녕하세요. 서울약국입니다.', '#31를 팝니다.', 'http://localhost:8092/file/images/002.jpeg', '약/치킨', 'http://118.67.128.240:4231/jejumarket'),
@@ -301,7 +301,7 @@ REPLACE INTO `marketlist` (`id`, `shopname`, `ceo`, `gate`, `phonenumber`, `addr
 	(260, '익산고추', '사람142', '7', '010-0101-0242', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 315, 'https://tagdetail.com/v/hoXnYBFg5Il', '안녕하세요. 익산고추입니다.', '#142를 팝니다.', 'http://localhost:8092/file/images/260.jpeg', '농산물', 'http://118.67.128.240:4342/jejumarket'),
 	(261, '인정식육', '사람141', '7', '010-0101-0241', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 314, 'https://tagdetail.com/v/FhjGZkPttA8', '안녕하세요. 인정식육입니다.', '#141를 팝니다.', 'http://localhost:8092/file/images/261.jpeg', '정육', 'http://118.67.128.240:4341/jejumarket');
 
--- 테이블 ollemarket.noticeboard 구조 내보내기
+-- 테이블 OlleMetaGame.noticeboard 구조 내보내기
 CREATE TABLE IF NOT EXISTS `noticeboard` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL,
@@ -312,9 +312,9 @@ CREATE TABLE IF NOT EXISTS `noticeboard` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 
--- 테이블 데이터 ollemarket.noticeboard:~0 rows (대략적) 내보내기
+-- 테이블 데이터 OlleMetaGame.noticeboard:~0 rows (대략적) 내보내기
 
--- 테이블 ollemarket.users 구조 내보내기
+-- 테이블 OlleMetaGame.users 구조 내보내기
 CREATE TABLE IF NOT EXISTS `users` (
   `userId` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
@@ -327,11 +327,11 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`userId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 
--- 테이블 데이터 ollemarket.users:~1 rows (대략적) 내보내기
+-- 테이블 데이터 OlleMetaGame.users:~1 rows (대략적) 내보내기
 REPLACE INTO `users` (`userId`, `password`, `email`, `name`, `role`, `created_at`, `last_login`, `status`) VALUES
 	('admin', 'admin123@', 'lhs192@valiantdata.com', '관리자', 'ADMIN', NULL, NULL, 'active');
 
--- 테이블 ollemarket.users_roles 구조 내보내기
+-- 테이블 OlleMetaGame.users_roles 구조 내보내기
 CREATE TABLE IF NOT EXISTS `users_roles` (
   `users_userId` varchar(255) NOT NULL,
   `roles` varchar(255) DEFAULT NULL,
@@ -339,7 +339,7 @@ CREATE TABLE IF NOT EXISTS `users_roles` (
   CONSTRAINT `users_roles_ibfk_1` FOREIGN KEY (`users_userId`) REFERENCES `users` (`userId`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 
--- 테이블 데이터 ollemarket.users_roles:~1 rows (대략적) 내보내기
+-- 테이블 데이터 OlleMetaGame.users_roles:~1 rows (대략적) 내보내기
 REPLACE INTO `users_roles` (`users_userId`, `roles`) VALUES
 	('admin', 'ADMIN');
 
