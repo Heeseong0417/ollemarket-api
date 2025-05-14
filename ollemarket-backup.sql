@@ -1,337 +1,350 @@
-/opt/homebrew/Cellar/mariadb/11.7.2/bin/mysqldump --skip-lock-tables --routines --add-drop-table --disable-keys --extended-insert --column-statistics=0 -u root --host=localhost --port=3306 OlleMetaGame
-Task 'MySQL dump' started at Wed May 14 16:30:05 KST 2025
-/opt/homebrew/Cellar/mariadb/11.7.2/bin/mysqldump: Deprecated program name. It will be removed in a future release, use 'mariadb-dump' instead
-
-/opt/homebrew/Cellar/mariadb/11.7.2/bin/mysqldump: unknown variable 'column-statistics=0'
-
-Task 'MySQL dump' finished at Wed May 14 16:30:05 KST 2025
-2025-05-14 16:30:05.596 - IO error: Process failed (exit code = 7). See error log.
-2025-05-14 16:30:05.596 - java.io.IOException: Process failed (exit code = 7). See error log.
-	at org.jkiss.dbeaver.tasks.nativetool.AbstractNativeToolHandler.validateErrorCode(AbstractNativeToolHandler.java:263)
-	at org.jkiss.dbeaver.tasks.nativetool.AbstractNativeToolHandler.executeProcess(AbstractNativeToolHandler.java:241)
-	at org.jkiss.dbeaver.tasks.nativetool.AbstractNativeToolHandler.doExecute(AbstractNativeToolHandler.java:283)
-	at org.jkiss.dbeaver.ext.mysql.tasks.MySQLNativeToolHandler.doExecute(MySQLNativeToolHandler.java:47)
-	at org.jkiss.dbeaver.tasks.nativetool.AbstractNativeToolHandler.lambda$0(AbstractNativeToolHandler.java:87)
-	at org.jkiss.dbeaver.runtime.RunnableContextDelegate.lambda$0(RunnableContextDelegate.java:39)
-	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:124)
-/opt/homebrew/Cellar/mariadb/11.7.2/bin/mysqldump --skip-lock-tables --routines --add-drop-table --disable-keys --extended-insert -u root --host=localhost --port=3306 OlleMetaGame
-Task 'MySQL dump' started at Wed May 14 16:30:42 KST 2025
-/opt/homebrew/Cellar/mariadb/11.7.2/bin/mysqldump: Deprecated program name. It will be removed in a future release, use 'mariadb-dump' instead
-
-WARNING: option --ssl-verify-server-cert is disabled, because of an insecure passwordless login.
-
-/*M!999999\- enable the sandbox mode */ 
-
--- MariaDB dump 10.19-11.7.2-MariaDB, for osx10.20 (arm64)
-
---
-
--- Host: localhost    Database: OlleMetaGame
-
--- ------------------------------------------------------
-
--- Server version	11.7.2-MariaDB
-
-
+-- --------------------------------------------------------
+-- 호스트:                          127.0.0.1
+-- 서버 버전:                        11.3.2-MariaDB - mariadb.org binary distribution
+-- 서버 OS:                        Win64
+-- HeidiSQL 버전:                  12.6.0.6765
+-- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-
-/*!40101 SET NAMES utf8mb4 */;
-
+/*!40101 SET NAMES utf8 */;
+/*!50503 SET NAMES utf8mb4 */;
 /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-
 /*!40103 SET TIME_ZONE='+00:00' */;
-
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-
-/*M!100616 SET @OLD_NOTE_VERBOSITY=@@NOTE_VERBOSITY, NOTE_VERBOSITY=0 */;
-
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 
---
+-- ollemarket 데이터베이스 구조 내보내기
+CREATE DATABASE IF NOT EXISTS `ollemarket` /*!40100 DEFAULT CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci */;
+USE `ollemarket`;
 
--- Table structure for table `marketlist`
-
---
-
-
-
-DROP TABLE IF EXISTS `marketlist`;
-
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-
-/*!40101 SET character_set_client = utf8mb4 */;
-
-CREATE TABLE `marketlist` (
-
+-- 테이블 ollemarket.marketlist 구조 내보내기
+CREATE TABLE IF NOT EXISTS `marketlist` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-
   `shopname` varchar(255) DEFAULT NULL,
-
   `ceo` varchar(255) DEFAULT NULL,
-
   `gate` varchar(255) DEFAULT NULL,
-
   `phonenumber` varchar(255) DEFAULT NULL,
-
   `address` varchar(255) DEFAULT NULL,
-
   `ollehnum` int(11) DEFAULT NULL,
-
   `homepage` varchar(255) DEFAULT NULL,
-
   `info` text DEFAULT NULL,
-
   `item` text DEFAULT NULL,
-
   `imageUrl` varchar(255) DEFAULT NULL,
-
   `tag` varchar(255) DEFAULT NULL,
-
   `shoppage` varchar(255) DEFAULT NULL,
-
   PRIMARY KEY (`id`)
-
 ) ENGINE=InnoDB AUTO_INCREMENT=295 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-/*!40101 SET character_set_client = @saved_cs_client */;
-
-
-
---
-
--- Dumping data for table `marketlist`
-
---
-
-
-
-LOCK TABLES `marketlist` WRITE;
-
-/*!40000 ALTER TABLE `marketlist` DISABLE KEYS */;
-
-INSERT INTO `marketlist` VALUES
-
-(1,'남성크로커다일','사람32','1','010-0101-0132','제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18',205,'https://tagdetail.com/v/LlH_4dPFIwN','안녕하세요. 남성크로커다일입니다.','#32를 팝니다.','http://localhost:8092/file/images/001.jpeg','생활잡화','http://118.67.128.240:4232/jejumarket'),
-
-(2,'서울약국','사람31','1','010-0101-0131','제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18',204,'https://tagdetail.com/v/atfHfFZQeB4','안녕하세요. 서울약국입니다.','#31를 팝니다.','http://localhost:8092/file/images/002.jpeg','약/치킨','http://118.67.128.240:4231/jejumarket'),
-
-(3,'장바구니','사람30','1','010-0101-0130','제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18',203,'https://tagdetail.com/v/Ef71X5Frtdg','안녕하세요. 장바구니입니다.','#30를 팝니다.','http://localhost:8092/file/images/003.jpeg','상회/특산물','http://118.67.128.240:4230/jejumarket'),
-
-(4,'패션쇼핑몰','사람29','1','010-0101-0129','제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18',202,'https://tagdetail.com/v/7TJgeZP6Pkf','안녕하세요. 패션쇼핑몰입니다.','#29를 팝니다.','http://localhost:8092/file/images/004.jpeg','상회/특산물','http://118.67.128.240:4229/jejumarket'),
-
-(5,'유선약국','사람28','1','010-0101-0128','제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18',201,'https://tagdetail.com/v/fUYVtAUeJU7','안녕하세요. 유선약국입니다.','#28를 팝니다.','http://localhost:8092/file/images/005.jpeg','약/치킨','http://118.67.128.240:4228/jejumarket'),
-
-(6,'남도농산','사람27','1','010-0101-0127','제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18',200,'https://tagdetail.com/v/-cRNWQZ5ulW','안녕하세요. 남도농산입니다.','#27를 팝니다.','http://localhost:8092/file/images/006.jpeg','농산물','http://118.67.128.240:4227/jejumarket'),
-
-(7,'맛짱먹거리','사람26','1','010-0101-0126','제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18',199,'https://tagdetail.com/v/rSAqdQw8pKF','안녕하세요. 맛짱먹거리입니다.','#26를 팝니다.','http://localhost:8092/file/images/007.jpeg','식사 및 음료','http://118.67.128.240:4226/jejumarket'),
-
-(8,'익수식품','사람94','1','010-0101-0194','제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18',267,'https://tagdetail.com/v/TXHarh1eLpY','안녕하세요. 익수식품입니다.','#94를 팝니다.','http://localhost:8092/file/images/008.jpeg','농산물','http://118.67.128.240:4294/jejumarket'),
-
-(9,'태영수산익수청과','사람95','1','010-0101-0195','제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18',268,'https://tagdetail.com/v/QSrUWnkgFa4','안녕하세요. 태영수산익수청과입니다.','#95를 팝니다.','http://localhost:8092/file/images/009.jpeg','농산물','http://118.67.128.240:4295/jejumarket'),
-
-(10,'우리신발마트','사람25','1','010-0101-0125','제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18',198,'https://tagdetail.com/v/9QouK93r6gL','안녕하세요. 우리신발마트입니다.','#25를 팝니다.','http://localhost:8092/file/images/010.jpeg','생활잡화','http://118.67.128.240:4225/jejumarket'),
-
-(11,'경자상회','사람24','1','010-0101-0124','제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18',197,'https://tagdetail.com/v/_jOXt5r1IF0','안녕하세요. 경자상회입니다.','#24를 팝니다.','http://localhost:8092/file/images/011.jpeg','생활잡화','http://118.67.128.240:4224/jejumarket'),
-
-(12,'FBI단란주점','사람23','1','010-0101-0123','제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18',196,'','안녕하세요. FBI단란주점입니다.','#23를 팝니다.','','생활잡화','http://118.67.128.240:4223/jejumarket'),
-
-(13,'제주소나이','사람22','1','010-0101-0122','제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18',195,'https://tagdetail.com/v/QIUNHEXv09Z','안녕하세요. 제주소나이입니다.','#22를 팝니다.','http://localhost:8092/file/images/013.jpeg','생활잡화','http://118.67.128.240:4222/jejumarket'),
-
-(14,'원보마트','사람21','1','010-0101-0121','제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18',194,'https://tagdetail.com/v/kO2RyOfMCR9','안녕하세요. 원보마트입니다.','#21를 팝니다.','http://localhost:8092/file/images/014.jpeg','생활잡화','http://118.67.128.240:4221/jejumarket'),
-
-(15,'준이네아침농장','사람20','1','010-0101-0120','제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18',193,'https://tagdetail.com/v/tcaj4QZufjV','안녕하세요. 준이네아침농장입니다.','#20를 팝니다.','http://localhost:8092/file/images/015.jpeg','농산물','http://118.67.128.240:4220/jejumarket'),
-
-(16,'은경수산','사람19','1','010-0101-0119','제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18',192,'https://tagdetail.com/v/I8i5tCRrivn','안녕하세요. 은경수산입니다.','#19를 팝니다.','http://localhost:8092/file/images/016.jpeg','수산','http://118.67.128.240:4219/jejumarket'),
-
-(17,'지민원','사람18','1','010-0101-0118','제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18',191,'https://tagdetail.com/v/J4kgSip0dt7','안녕하세요. 지민원입니다.','#18를 팝니다.','http://localhost:8092/file/images/017.jpeg','상회/특산물','http://118.67.128.240:4218/jejumarket'),
-
-(18,'쉬멍가','사람17','1','010-0101-0117','제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18',190,'https://tagdetail.com/v/7g4aq7bKjOe','안녕하세요. 쉬멍가입니다.','#17를 팝니다.','http://localhost:8092/file/images/018.jpeg','식사 및 음료','http://118.67.128.240:4217/jejumarket'),
-
-(19,'우리집웰빙식당','사람16','1','010-0101-0116','제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18',189,'','안녕하세요. 우리집웰빙식당입니다.','#16를 팝니다.','','식사 및 음료','http://118.67.128.240:4216/jejumarket'),
-
-(20,'대명어물','사람15','1','010-0101-0115','제주특별자치도18.67.128.240:4319/jejumarket'),
-
-(95,'송사부','사람118','2','010-0101-0218','제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18',291,'https://tagdetail.com/v/o-NrA51hnmF','안녕하세요. 송사부입니다.','#118를 팝니다.','http://localhost:8092/file/images/095.jpeg','식사 및 음료','http://118.67.128.240:4318/jejumarket'),
-
-(96,'정아어물','사람117','2','010-0101-0217','제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18',290,'https://tagdetail.com/v/qH5QSIv40Jr','안녕하세요. 정아어물입니다.','#117를 팝니다.','http://localhost:8092/file/images/096.jpeg','수산','http://118.67.128.240:4317/jejumarket'),
-
-(97,'우리양념집','사람10','3','010-0101-0110','제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18',183,'https://tagdetail.com/v/Gc0t2HQvaAK','안녕하세요. 우리양념집입니다.','#10를 팝니다.','http://localhost:8092/file/images/097.jpeg','젓갈/김치','http://118.67.128.240:4210/jejumarket'),
-
-(98,'한라통닭','사람197','3','010-0101-0297','제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18',370,'https://tagdetail.com/v/eLX00KDthKO','안녕하세요. 한라통닭입니다.','#197를 팝니다.','http://localhost:8092/file/images/098.jpeg','약/치킨','http://118.67.128.240:4397/jejumarket'),
-
-(99,'현대식육점','사람198','3','010-0101-0298','제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18',371,'https://tagdetail.com/v/gZFrn5kDRvN','안녕하세요. 현대식육점입니다.','#198를 팝니다.','http://localhost:8092/file/images/099.jpeg','정육','http://118.67.128.240:4398/jejumarket'),
-
-(100,'삼해건어물','사람199','3','010-0101-0299','제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18',372,'https://tagdetail.com/v/q3ergjOZWJj','안녕하세요. 삼해건어물입니다.','#199를 팝니다.','http://localhost:8092/file/images/100.jpeg','수산','http://118.67.128.240:4399/jejumarket'),
-
-(101,'옥이네농산물','사람200','3','010-0101-0300','제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18',373,'https://tagdetail.com/v/HGHh59nqMXa','안녕하세요. 옥이네농산물입니다.','#200를 팝니다.','http://localhost:8092/file/images/101.jpeg','농산물','http://118.67.128.240:4400/jejumarket'),
-
-(102,'금복식당','사람201','3','010-0101-0301','제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18',374,'','안녕하세요. 금복식당입니다.','#201를 팝니다.','','식사 및 음료','http://118.67.128.240:4401/jejumarket'),
-
-(103,'풍년농산물직판장','사람202','3','010-0101-0302','제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18',375,'https://tagdetail.com/v/OqNxXPrLxIW','안녕하세요. 풍년농산물직판장입니다.','#202를 팝니다.','http://localhost:8092/file/images/103.jpeg','농산물','http://118.67.128.240:4402/jejumarket'),
-
-(104,'풍년양념코너','사람203','3','010-0101-0303','제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18',376,'','안녕하세요. 풍년양념코너입니다.','#203를 팝니다.','','젓갈/김치','http://118.67.128.240:4403/jejumarket'),
-
-(105,'빵정옥제과','사람204','3','010-0101-0304','제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18',377,'https://tagdetail.com/v/XW3s63ZPsat','안녕하세요. 빵정옥제과입니다.','#204를 팝니다.','http://localhost:8092/file/images/105.jpeg','식사 및 음료','http://118.67.128.240:4404/jejumarket'),
-
-(106,'반도기름집','사람205','3','010-0101-0305','제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18',378,'https://tagdetail.com/v/vdkistd4xFN','안녕하세요. 반도기름집입니다.','#205를 팝니다.','http://localhost:8092/file/images/106.jpeg','상회/특산물','http://118.67.128.240:4405/jejumarket'),
-
-(107,'마농치킨','사람206','3','010-0101-0306','제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18',379,'https://tagdetail.com/v/MoaAyrwaaKd','안녕하세요. 마농치킨입니다.','#206를 팝니다.','http://localhost:8092/file/images/107.jpeg','약/치킨','http://118.67.128.240:4406/jejumarket'),
-
-(108,'전주상회','사람207','3','010-0101-0307','제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18',380,'https://tagdetail.com/v/4ZFaQomaxVn','안녕하세요. 전주상회입니다.','#207를 팝니다.','http://localhost:8092/file/images/108.jpeg','상회/특산물','http://118.67.128.240:4407/jejumarket'),
-
-(109,'올레해산물','사람208','3','010-0101-0308','제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18',381,'https://tagdetail.com/v/anUyWB-_3Nc','안녕하세요. 올레해산물입니다.','#208를 팝니다.','http://localhost:8092/file/images/109.jpeg','수산','http://118.67.128.240:4408/jejumarket'),
-
-(110,'황금어장','사람209','3','010-0101-0309','제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18',382,'https://tagdetail.com/v/X2nEIRTfBuk','안녕하세요. 황금어장입니다.','#209를 팝니다.','http://localhost:8092/file/images/110.jpeg','수산','http://118.67.128.240:4409/jejumarket'),
-
-(111,'드럼공간','사람210','3','010-0101-0310','제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18',383,'','안녕하세요. 드럼공간입니다.','#210를 팝니다.','','상회/특산물','http://118.67.128.240:4410/jejumarket'),
-
-(112,'숯불오리바베큐','사람211','3','010-0101-0311','제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18',384,'https://tagdetail.com/v/esadvJ31I2r','안녕하세요. 숯불오리바베큐입니다.','#211를 팝니다.','http://localhost:8092/file/images/112.jpeg','식사 및 음료','http://118.67.128.240:4411/jejumarket'),
-
-(113,'사남매포장','사람235','3','010-0101-0335','제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18',408,'https://tagdetail.com/v/ZR7xMRk6SxG','안녕하세요. 사남매포장입니다.','#235를 팝니다.','http://localhost:8092/file/images/113.jpeg','농산물','http://118.67.128.240:4435/jejumarket'),
-
-(114,'마마네회포장','사람234','3','010-0101-0334','제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18',407,'https://tagdetail.com/v/4fn1qkttlNJ','안녕하세요. 마마네회포장입니다.','#234를 팝니다.','http://localhost:8092/file/images/114.jpeg','수산','http://118.67.128.240:4434/jejumarket'),
-
-(115,'도고리패션','사람233','3','010-0101-0333','제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18',406,'https://tagdetail.com/v/o9o5gMuXa4Z','안녕하세요. 도고리패션입니다.','#233를 팝니다.','http://localhost:8092/file/images/115.jpeg','생활잡화','http://118.67.128.240:4433/jejumarket'),
-
-(116,'럭셔리단란주점','사람232','3','010-0101-0332','제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18',405,'','안녕하세요. 럭셔리단란주점입니다.','#232를 팝니다.','','생활잡화','http://118.67.128.240:4432/jejumarket'),
-
-(117,'호성농수산','사람231','3','010-0101-0331','제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18',404,'','안녕하세요. 호성농수산입니다.','#231를 팝니다.','','농산물','http://118.67.128.240:4431/jejumarket'),
-
-(118,'냉삼동통이네','사람230','3','010-0101-0330','제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18',403,'https://tagdetail.com/v/fIxMDRkeGYt','안녕하세요. 냉삼동통이네입니다.','#230를 팝니다.','http://localhost:8092/file/images/118119.jpeg','정육','http://118.67.128.240:4430/jejumarket'),
-
-(119,'냉삼동통이네','사람229','3','010-0101-0329','제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18',402,'https://tagdetail.com/v/fIxMDRkeGYt','안녕하세요. 냉삼동통이네입니다.','#229를 팝니다.','http://localhost:8092/file/images/118119.jpeg','정육','http://118.67.128.240:4429/jejumarket'),
-
-(120,'수진수산','사람228','3','010-0101-0328','제�7','제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18',230,'https://tagdetail.com/v/rlPvMdAHrv_','안녕하세요. 신성제주가입니다.','#57를 팝니다.','http://localhost:8092/file/images/194.jpeg','농산물','http://118.67.128.240:4257/jejumarket'),
-
-(195,'덕흥고추상회','사람56','5','010-0101-0156','제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18',229,'https://tagdetail.com/v/GL2WxFgVG9u','안녕하세요. 덕흥고추상회입니다.','#56를 팝니다.','http://localhost:8092/file/images/195.jpeg','농산물','http://118.67.128.240:4256/jejumarket'),
-
-(196,'임박사2','사람8','5','010-0101-0108','제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18',181,'https://tagdetail.com/v/r5GiC0keMdV','안녕하세요. 임박사2입니다.','#8를 팝니다.','http://localhost:8092/file/images/196.jpeg','약/치킨','http://118.67.128.240:4208/jejumarket'),
-
-(197,'덕흥야채','사람66','5','010-0101-0166','제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18',239,'https://tagdetail.com/v/XH4MAHcesYL','안녕하세요. 덕흥야채입니다.','#66를 팝니다.','http://localhost:8092/file/images/197.jpeg','정육','http://118.67.128.240:4266/jejumarket'),
-
-(198,'애플수박쥬스','사람67','5','010-0101-0167','제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18',240,'https://tagdetail.com/v/ytIeSW6_bXy','안녕하세요. 애플수박쥬스입니다.','#67를 팝니다.','http://localhost:8092/file/images/198.jpeg','식사 및 음료','http://118.67.128.240:4267/jejumarket'),
-
-(199,'인태농수산물','사람68','5','010-0101-0168','제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18',241,'https://tagdetail.com/v/PEG3Gh08he5','안녕하세요. 인태농수산물입니다.','#68를 팝니다.','http://localhost:8092/file/images/199.jpeg','농산물','http://118.67.128.240:4268/jejumarket'),
-
-(200,'대성조명','사람216','6','010-0101-0316','제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18',389,'https://tagdetail.com/v/OY7JiH0TS5C','안녕하세요. 대성조명입니다.','#216를 팝니다.','http://localhost:8092/file/images/200.jpeg','생활잡화','http://118.67.128.240:4416/jejumarket'),
-
-(201,'제주농수산','사람217','6','010-0101-0317','제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18',390,'https://tagdetail.com/v/W7vDCSYJxDa','안녕하세요. 제주농수산입니다.','#217를 팝니다.','http://localhost:8092/file/images/201.jpeg','농산물','http://118.67.128.240:4417/jejumarket'),
-
-(202,'민수네귤농장','사람218','6','010-0101-0318','제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18',391,'https://tagdetail.com/v/rvhN69o7QPE','안녕하세요. 민수네귤농장입니다.','#218를 팝니다.','http://localhost:8092/file/images/202.jpeg','농산물','http://118.67.128.240:4418/jejumarket'),
-
-(203,'민희네떡집','사람214','6','010-0101-0314','제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18',387,'https://tagdetail.com/v/sGUtJMCl9jQ','안녕하세요. 민희네떡집입니다.','#214를 팝니다.','http://localhost:8092/file/images/203.jpeg','상회/특산물','http://118.67.128.240:4414/jejumarket'),
-
-(204,'임가네수산','사람213','6','010-0101-0313','제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18',386,'https://tagdetail.com/v/RaBlGDQgezZ','안녕하세요. 임가네수산입니다.','#213를 팝니다.','http://localhost:8092/file/images/204.jpeg','수산','http://118.67.128.240:4413/jejumarket'),
-
-(205,'임가네청과','사람212','6','010-0101-0312','제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18',385,'https://tagdetail.com/v/6P38tKHvNPM','안녕하세요. 임가네청과입니다.','#212를 팝니다.','http://localhost:8092/file/images/205.jpeg','농산물','http://118.67.128.240:4412/jejumarket'),
-
-(206,'부영상회','사람165','7','010-0101-0265','제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18',338,'https://tagdetail.com/v/-OwtJIueyut','안녕하세요. 부영상회입니다.','#165를 팝니다.','http://localhost:8092/file/images/206.jpeg','생활잡화','http://118.67.128.240:4365/jejumarket'),
-
-(207,'산양방앗간','사람166','7','010-0101-0266','제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18',339,'https://tagdetail.com/v/_EAiBlCrMUw','안녕하세요. 산양방앗간입니다.','#166를 팝니다.','http://localhost:8092/file/images/207.jpeg','상회/특산물','http://118.67.128.240:4366/jejumarket'),
-
-(208,'우정정육마트','사람167','7','010-0101-0267','제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18',340,'https://tagdetail.com/v/lEc1mlJvZRn','안녕하세요. 우정정육마트입니다.','#167를 팝니다.','http://localhost:8092/file/images/208.jpeg','정육','http://118.67.128.240:4367/jejumarket'),
-
-(209,'뽕끄랑주전부리','사람168','7','010-0101-0268','제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18',341,'https://tagdetail.com/v/4XMDKWmFiTH','안녕하세요. 뽕끄랑주전부리입니다.','#168를 팝니다.','http://localhost:8092/file/images/209.jpeg','식사 및 음료','http://118.67.128.240:4368/jejumarket'),
-
-(210,'청해수산','사람169','7','010-0101-0269','제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18',342,'https://tagdetail.com/v/UYJZVqy3UEe','안녕하세요. 청해수산입니다.','#169를 팝니다.','http://localhost:8092/file/images/210.jpeg','수산','http://118.67.128.240:4369/jejumarket'),
-
-(211,'서귀포해산물','사람170','7','010-0101-0270','제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18',343,'https://tagdetail.com/v/fnLz3j1Jada','안녕하세요. 서귀포해산물입니다.','#170를 팝니다.','http://localhost:8092/file/images/211.jpeg','수산','http://118.67.128.240:4370/jejumarket'),
-
-(212,'골목','사람171','7','010-0101-0271','제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18',344,'','안녕하세요. 골목입니다.','#171를 팝니다.','','식사 및 음료','http://118.67.128.240:4371/jejumarket'),
-
-(213,'팡','사람172','7','010-0101-0272','제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18',345,'https://tagdetail.com/v/2DyjCOHtiqj','안녕하세요. 팡입니다.','#172를 팝니다.','http://localhost:8092/file/images/213.jpeg','생활잡화','http://118.67.128.240:4372/jejumarket'),
-
-(214,'목화백화점','사람173','7','010-0101-0273','제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18',346,'','안녕하세요. 목화백화점입니다.','#173를 팝니다.','','생활잡화','http://118.67.128.240:4373/jejumarket'),
-
-(215,'우리패션','사람174','7','010-0101-0274','제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18',347,'https://tagdetail.com/v/hkc2_1RdVv9','안녕하세요. 우리패션입니다.','#174를 팝니다.','http://localhost:8092/file/images/215.jpeg','생활잡화','http://118.67.128.240:4374/jejumarket'),
-
-(216,'진도김치','사람175','7','010-0101-0275','제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18',348,'https://tagdetail.com/v/pxF-mMuEJSg','안녕하세요. 진도김치입니다.','#175를 팝니다.','http://localhost:8092/file/images/216.jpeg','젓갈/김치','http://118.67.128.240:4375/jejumarket'),
-
-(217,'들령가게','사람176','7','010-0101-0276','제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18',349,'https://tagdetail.com/v/ntygFWQQicQ','안녕하세요. 들령가게입니다.','#176를 팝니다.','http://localhost:8092/file/images/217.jpeg','생활잡화','http://118.67.128.240:4376/jejumarket'),
-
-(218,'우산해산물','사람177','7','010-0101-0277','제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18',350,'https://tagdetail.com/v/XoZRjmpfeBv','안녕하세요. 우산해산물입니다.','#177를 팝니다.','http://localhost:8092/file/images/218.jpeg','수산','http://118.67.128.240:4377/je/*!40000 ALTER TABLE `noticeboard` ENABLE KEYS */;
-
-UNLOCK TABLES;
-
-
-
---
-
--- Table structure for table `users`
-
---
-
-
-
-DROP TABLE IF EXISTS `users`;
-
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-
-/*!40101 SET character_set_client = utf8mb4 */;
-
-CREATE TABLE `users` (
-
+-- 테이블 데이터 ollemarket.marketlist:~261 rows (대략적) 내보내기
+REPLACE INTO `marketlist` (`id`, `shopname`, `ceo`, `gate`, `phonenumber`, `address`, `ollehnum`, `homepage`, `info`, `item`, `imageUrl`, `tag`, `shoppage`) VALUES
+	(1, '남성크로커다일', '사람32', '1', '010-0101-0132', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 205, 'https://tagdetail.com/v/LlH_4dPFIwN', '안녕하세요. 남성크로커다일입니다.', '#32를 팝니다.', 'http://localhost:8092/file/images/001.jpeg', '생활잡화', 'http://118.67.128.240:4232/jejumarket'),
+	(2, '서울약국', '사람31', '1', '010-0101-0131', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 204, 'https://tagdetail.com/v/atfHfFZQeB4', '안녕하세요. 서울약국입니다.', '#31를 팝니다.', 'http://localhost:8092/file/images/002.jpeg', '약/치킨', 'http://118.67.128.240:4231/jejumarket'),
+	(3, '장바구니', '사람30', '1', '010-0101-0130', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 203, 'https://tagdetail.com/v/Ef71X5Frtdg', '안녕하세요. 장바구니입니다.', '#30를 팝니다.', 'http://localhost:8092/file/images/003.jpeg', '상회/특산물', 'http://118.67.128.240:4230/jejumarket'),
+	(4, '패션쇼핑몰', '사람29', '1', '010-0101-0129', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 202, 'https://tagdetail.com/v/7TJgeZP6Pkf', '안녕하세요. 패션쇼핑몰입니다.', '#29를 팝니다.', 'http://localhost:8092/file/images/004.jpeg', '상회/특산물', 'http://118.67.128.240:4229/jejumarket'),
+	(5, '유선약국', '사람28', '1', '010-0101-0128', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 201, 'https://tagdetail.com/v/fUYVtAUeJU7', '안녕하세요. 유선약국입니다.', '#28를 팝니다.', 'http://localhost:8092/file/images/005.jpeg', '약/치킨', 'http://118.67.128.240:4228/jejumarket'),
+	(6, '남도농산', '사람27', '1', '010-0101-0127', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 200, 'https://tagdetail.com/v/-cRNWQZ5ulW', '안녕하세요. 남도농산입니다.', '#27를 팝니다.', 'http://localhost:8092/file/images/006.jpeg', '농산물', 'http://118.67.128.240:4227/jejumarket'),
+	(7, '맛짱먹거리', '사람26', '1', '010-0101-0126', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 199, 'https://tagdetail.com/v/rSAqdQw8pKF', '안녕하세요. 맛짱먹거리입니다.', '#26를 팝니다.', 'http://localhost:8092/file/images/007.jpeg', '식사 및 음료', 'http://118.67.128.240:4226/jejumarket'),
+	(8, '익수식품', '사람94', '1', '010-0101-0194', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 267, 'https://tagdetail.com/v/TXHarh1eLpY', '안녕하세요. 익수식품입니다.', '#94를 팝니다.', 'http://localhost:8092/file/images/008.jpeg', '농산물', 'http://118.67.128.240:4294/jejumarket'),
+	(9, '태영수산익수청과', '사람95', '1', '010-0101-0195', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 268, 'https://tagdetail.com/v/QSrUWnkgFa4', '안녕하세요. 태영수산익수청과입니다.', '#95를 팝니다.', 'http://localhost:8092/file/images/009.jpeg', '농산물', 'http://118.67.128.240:4295/jejumarket'),
+	(10, '우리신발마트', '사람25', '1', '010-0101-0125', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 198, 'https://tagdetail.com/v/9QouK93r6gL', '안녕하세요. 우리신발마트입니다.', '#25를 팝니다.', 'http://localhost:8092/file/images/010.jpeg', '생활잡화', 'http://118.67.128.240:4225/jejumarket'),
+	(11, '경자상회', '사람24', '1', '010-0101-0124', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 197, 'https://tagdetail.com/v/_jOXt5r1IF0', '안녕하세요. 경자상회입니다.', '#24를 팝니다.', 'http://localhost:8092/file/images/011.jpeg', '생활잡화', 'http://118.67.128.240:4224/jejumarket'),
+	(12, 'FBI단란주점', '사람23', '1', '010-0101-0123', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 196, '', '안녕하세요. FBI단란주점입니다.', '#23를 팝니다.', '', '생활잡화', 'http://118.67.128.240:4223/jejumarket'),
+	(13, '제주소나이', '사람22', '1', '010-0101-0122', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 195, 'https://tagdetail.com/v/QIUNHEXv09Z', '안녕하세요. 제주소나이입니다.', '#22를 팝니다.', 'http://localhost:8092/file/images/013.jpeg', '생활잡화', 'http://118.67.128.240:4222/jejumarket'),
+	(14, '원보마트', '사람21', '1', '010-0101-0121', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 194, 'https://tagdetail.com/v/kO2RyOfMCR9', '안녕하세요. 원보마트입니다.', '#21를 팝니다.', 'http://localhost:8092/file/images/014.jpeg', '생활잡화', 'http://118.67.128.240:4221/jejumarket'),
+	(15, '준이네아침농장', '사람20', '1', '010-0101-0120', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 193, 'https://tagdetail.com/v/tcaj4QZufjV', '안녕하세요. 준이네아침농장입니다.', '#20를 팝니다.', 'http://localhost:8092/file/images/015.jpeg', '농산물', 'http://118.67.128.240:4220/jejumarket'),
+	(16, '은경수산', '사람19', '1', '010-0101-0119', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 192, 'https://tagdetail.com/v/I8i5tCRrivn', '안녕하세요. 은경수산입니다.', '#19를 팝니다.', 'http://localhost:8092/file/images/016.jpeg', '수산', 'http://118.67.128.240:4219/jejumarket'),
+	(17, '지민원', '사람18', '1', '010-0101-0118', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 191, 'https://tagdetail.com/v/J4kgSip0dt7', '안녕하세요. 지민원입니다.', '#18를 팝니다.', 'http://localhost:8092/file/images/017.jpeg', '상회/특산물', 'http://118.67.128.240:4218/jejumarket'),
+	(18, '쉬멍가', '사람17', '1', '010-0101-0117', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 190, 'https://tagdetail.com/v/7g4aq7bKjOe', '안녕하세요. 쉬멍가입니다.', '#17를 팝니다.', 'http://localhost:8092/file/images/018.jpeg', '식사 및 음료', 'http://118.67.128.240:4217/jejumarket'),
+	(19, '우리집웰빙식당', '사람16', '1', '010-0101-0116', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 189, '', '안녕하세요. 우리집웰빙식당입니다.', '#16를 팝니다.', '', '식사 및 음료', 'http://118.67.128.240:4216/jejumarket'),
+	(20, '대명어물', '사람15', '1', '010-0101-0115', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 188, '', '안녕하세요. 대명어물입니다.', '#15를 팝니다.', '', '수산', 'http://118.67.128.240:4215/jejumarket'),
+	(21, '대게고로케', '사람14', '1', '010-0101-0114', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 187, '', '안녕하세요. 대게고로케입니다.', '#14를 팝니다.', '', '상회/특산물', 'http://118.67.128.240:4214/jejumarket'),
+	(22, '경아수산', '사람5', '1', '010-0101-0105', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 178, 'https://tagdetail.com/v/TATZ72zocbP', '안녕하세요. 경아수산입니다.', '#5를 팝니다.', 'http://localhost:8092/file/images/022.jpeg', '수산', 'http://118.67.128.240:4205/jejumarket'),
+	(23, '매일축산유통', '사람13', '1', '010-0101-0113', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 186, 'https://tagdetail.com/v/jUDru5smK_5', '안녕하세요. 매일축산유통입니다.', '#13를 팝니다.', 'http://localhost:8092/file/images/023.jpeg', '정육', 'http://118.67.128.240:4213/jejumarket'),
+	(24, '적심', '홍길동', '1', '010-1234-5678', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 174, 'https://tagdetail.com/v/Tcg52n_mwol', '안녕하세요 재환야채입니다~', '#배추 #고추 #양파', 'http://localhost:8092/file/images/024.jpeg', '상회/특산물', 'http://118.67.128.240:4201/jejumarket'),
+	(25, '제성제과', '전우치', '1', '010-8765-4321', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 175, 'https://tagdetail.com/v/pjn93TVBxi0', '제성합니다, 제성제과입니다', '#고메단팥 #흑돼지문어 #흑돼지구이', 'http://localhost:8092/file/images/025.jpeg', '식사 및 음료', 'http://118.67.128.240:4202/jejumarket'),
+	(26, '네거리올레', '김삿갓', '1', '010-1234-4321', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 176, 'https://tagdetail.com/v/3_NKJxyVpiw', '네거리올레입니다!', '#롤카츠 #편육롤카츠 #불고기롤카츠', 'http://localhost:8092/file/images/026.jpeg', '상회/특산물', 'http://118.67.128.240:4203/jejumarket'),
+	(27, '하영점빵', '사람197', '1', '010-0101-0297', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 369, 'https://tagdetail.com/v/l3ptBWLjmqp', '안녕하세요. 하영점빵입니다.', '#197를 팝니다.', 'http://localhost:8092/file/images/027.jpeg', '상회/특산물', 'http://118.67.128.240:4396/jejumarket'),
+	(28, '대흥그릇도매상회', '사람69', '1', '010-0101-0169', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 242, 'https://tagdetail.com/v/59aqlKaroLn', '안녕하세요. 대흥그릇도매상회입니다.', '#69를 팝니다.', 'http://localhost:8092/file/images/028.jpeg', '생활잡화', 'http://118.67.128.240:4269/jejumarket'),
+	(29, '보명포목점', '사람70', '1', '010-0101-0170', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 243, 'https://tagdetail.com/v/4liIOn0tg4U', '안녕하세요. 보명포목점입니다.', '#70를 팝니다.', 'http://localhost:8092/file/images/029.jpeg', '생활잡화', 'http://118.67.128.240:4270/jejumarket'),
+	(30, '키다리그릇도매센터', '사람71', '1', '010-0101-0171', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 244, 'https://tagdetail.com/v/ow9wTrVbJ5w', '안녕하세요. 키다리그릇도매센터입니다.', '#71를 팝니다.', 'http://localhost:8092/file/images/030.jpeg', '생활잡화', 'http://118.67.128.240:4271/jejumarket'),
+	(31, '태록담제주', '사람72', '1', '010-0101-0172', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 245, 'https://tagdetail.com/v/LJm57nfc8fx', '안녕하세요. 태록담제주입니다.', '#72를 팝니다.', 'http://localhost:8092/file/images/031.jpeg', '상회/특산물', 'http://118.67.128.240:4272/jejumarket'),
+	(32, '왕서방네하꼬방', '사람73', '1', '010-0101-0173', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 246, 'https://tagdetail.com/v/B0WotooyG7Q', '안녕하세요. 왕서방네하꼬방입니다.', '#73를 팝니다.', 'http://localhost:8092/file/images/032.jpeg', '상회/특산물', 'http://118.67.128.240:4273/jejumarket'),
+	(33, '버들집', '사람74', '1', '010-0101-0174', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 247, 'https://tagdetail.com/v/w9VPug6QYWq', '안녕하세요. 버들집입니다.', '#74를 팝니다.', 'http://localhost:8092/file/images/033.jpeg', '식사 및 음료', 'http://118.67.128.240:4274/jejumarket'),
+	(34, '만물상회', '사람75', '1', '010-0101-0175', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 248, 'https://tagdetail.com/v/DjkVohv14g3', '안녕하세요. 만물상회입니다.', '#75를 팝니다.', 'http://localhost:8092/file/images/034.jpeg', '생활잡화', 'http://118.67.128.240:4275/jejumarket'),
+	(35, 'BYC재명상회', '사람76', '1', '010-0101-0176', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 249, 'https://tagdetail.com/v/QhkRrrB4rLT', '안녕하세요. BYC재명상회입니다.', '#76를 팝니다.', 'http://localhost:8092/file/images/035.jpeg', '생활잡화', 'http://118.67.128.240:4276/jejumarket'),
+	(36, '신혜숙수예', '사람77', '1', '010-0101-0177', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 250, 'https://tagdetail.com/v/xgY4p5k1NnU', '안녕하세요. 신혜숙수예입니다.', '#77를 팝니다.', 'http://localhost:8092/file/images/036.jpeg', '생활잡화', 'http://118.67.128.240:4277/jejumarket'),
+	(37, '가나안표고버섯', '사람78', '1', '010-0101-0178', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 251, 'https://tagdetail.com/v/iO7MC5wa8po', '안녕하세요. 가나안표고버섯입니다.', '#78를 팝니다.', 'http://localhost:8092/file/images/037.jpeg', '상회/특산물', 'http://118.67.128.240:4278/jejumarket'),
+	(38, '올레에반하다', '사람79', '1', '010-0101-0179', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 252, 'https://tagdetail.com/v/IHKOI6AtDwa', '안녕하세요. 올레에반하다입니다.', '#79를 팝니다.', 'http://localhost:8092/file/images/038.jpeg', '식사 및 음료', 'http://118.67.128.240:4279/jejumarket'),
+	(39, '올레올래', '사람80', '1', '010-0101-0180', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 253, 'https://tagdetail.com/v/u7d2B65er9j', '안녕하세요. 올레올래입니다.', '#80를 팝니다.', 'http://localhost:8092/file/images/039.jpeg', '상회/특산물', 'http://118.67.128.240:4280/jejumarket'),
+	(40, '할머니떡집', '사람82', '1', '010-0101-0182', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 255, 'https://tagdetail.com/v/dWWLB3vMdvP', '안녕하세요. 할머니떡집입니다.', '#82를 팝니다.', 'http://localhost:8092/file/images/040.jpeg', '상회/특산물', 'http://118.67.128.240:4282/jejumarket'),
+	(41, '흑돼지족발', '사람81', '1', '010-0101-0181', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 254, 'https://tagdetail.com/v/uV9NxD44spw', '안녕하세요. 흑돼지족발입니다.', '#81를 팝니다.', 'http://localhost:8092/file/images/041.jpeg', '상회/특산물', 'http://118.67.128.240:4281/jejumarket'),
+	(42, '새로나분식', '사람83', '1', '010-0101-0183', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 256, 'https://tagdetail.com/v/Q6LK9ln8R6t', '안녕하세요. 새로나분식입니다.', '#83를 팝니다.', 'http://localhost:8092/file/images/042.jpeg', '식사 및 음료', 'http://118.67.128.240:4283/jejumarket'),
+	(43, '진양비니루', '사람84', '1', '010-0101-0184', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 257, 'https://tagdetail.com/v/8f0z6oPBogn', '안녕하세요. 진양비니루입니다.', '#84를 팝니다.', 'http://localhost:8092/file/images/043.jpeg', '생활잡화', 'http://118.67.128.240:4284/jejumarket'),
+	(44, '하효통닭치킨', '사람85', '1', '010-0101-0185', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 258, 'https://tagdetail.com/v/Ry_rrG3DyYy', '안녕하세요. 하효통닭치킨입니다.', '#85를 팝니다.', 'http://localhost:8092/file/images/044.jpeg', '약/치킨', 'http://118.67.128.240:4285/jejumarket'),
+	(45, '효돈농수산', '사람86', '1', '010-0101-0186', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 259, 'https://tagdetail.com/v/4imASkChPHT', '안녕하세요. 효돈농수산입니다.', '#86를 팝니다.', 'http://localhost:8092/file/images/045.jpeg', '농산물', 'http://118.67.128.240:4286/jejumarket'),
+	(46, '아방국수', '사람87', '1', '010-0101-0187', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 260, 'https://tagdetail.com/v/AHQnhlbwEgb', '안녕하세요. 아방국수입니다.', '#87를 팝니다.', 'http://localhost:8092/file/images/046.jpeg', '식사 및 음료', 'http://118.67.128.240:4287/jejumarket'),
+	(47, '해동신발할인마트', '사람88', '1', '010-0101-0188', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 261, 'https://tagdetail.com/v/b9-bh9Z3t9w', '안녕하세요. 해동신발할인마트입니다.', '#88를 팝니다.', 'http://localhost:8092/file/images/047.jpeg', '생활잡화', 'http://118.67.128.240:4288/jejumarket'),
+	(48, '찐맛집', '사람89', '1', '010-0101-0189', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 262, 'https://tagdetail.com/v/j2xUsoLlvmJ', '안녕하세요. 찐맛집입니다.', '#89를 팝니다.', 'http://localhost:8092/file/images/048.jpeg', '식사 및 음료', 'http://118.67.128.240:4289/jejumarket'),
+	(49, '동의한의원', '사람90', '1', '010-0101-0190', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 263, '', '안녕하세요. 동의한의원입니다.', '#90를 팝니다.', '', '약/치킨', 'http://118.67.128.240:4290/jejumarket'),
+	(50, '국가대표농수산', '사람91', '1', '010-0101-0191', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 264, 'https://tagdetail.com/v/bsdGTMc-FXU', '안녕하세요. 국가대표농수산입니다.', '#91를 팝니다.', 'http://localhost:8092/file/images/050.jpeg', '농산물', 'http://118.67.128.240:4291/jejumarket'),
+	(51, '선주얼리', '사람92', '1', '010-0101-0192', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 265, 'https://tagdetail.com/v/3ngtRPWzm54', '안녕하세요. 선주얼리입니다.', '#92를 팝니다.', 'http://localhost:8092/file/images/051.jpeg', '생활잡화', 'http://118.67.128.240:4292/jejumarket'),
+	(52, 'T대리점', '사람93', '1', '010-0101-0193', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 266, '', '안녕하세요. T대리점입니다.', '#93를 팝니다.', '', '생활잡화', 'http://118.67.128.240:4293/jejumarket'),
+	(53, '털보두부', '사람96', '2', '010-0101-0196', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 269, 'https://tagdetail.com/v/CLe4bOTbNgq', '안녕하세요. 털보두부입니다.', '#96를 팝니다.', 'http://localhost:8092/file/images/053.jpeg', '상회/특산물', 'http://118.67.128.240:4296/jejumarket'),
+	(54, '소문난순대족발', '사람6', '2', '010-0101-0106', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 179, 'https://tagdetail.com/v/CvEeu3YAWaI', '안녕하세요. 소문난순대족발입니다.', '#6를 팝니다.', 'http://localhost:8092/file/images/054.jpeg', '식사 및 음료', 'http://118.67.128.240:4206/jejumarket'),
+	(55, '불로초장터', '사람97', '2', '010-0101-0197', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 270, 'https://tagdetail.com/v/9QhDMGEneEw', '안녕하세요. 불로초장터입니다.', '#97를 팝니다.', 'http://localhost:8092/file/images/055.jpeg', '상회/특산물', 'http://118.67.128.240:4297/jejumarket'),
+	(56, '선경해산물', '사람98', '2', '010-0101-0198', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 271, 'https://tagdetail.com/v/lUxKQg6_Gmv', '안녕하세요. 선경해산물입니다.', '#98를 팝니다.', 'http://localhost:8092/file/images/056.jpeg', '수산', 'http://118.67.128.240:4298/jejumarket'),
+	(57, '선일식육점', '사람99', '2', '010-0101-0199', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 272, 'https://tagdetail.com/v/uflEntuGHpt', '안녕하세요. 선일식육점입니다.', '#99를 팝니다.', 'http://localhost:8092/file/images/057.jpeg', '정육', 'http://118.67.128.240:4299/jejumarket'),
+	(58, '제주수산', '사람100', '2', '010-0101-0200', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 273, 'https://tagdetail.com/v/tJMSVPkbaW6', '안녕하세요. 제주수산입니다.', '#100를 팝니다.', 'http://localhost:8092/file/images/058.jpeg', '수산', 'http://118.67.128.240:4300/jejumarket'),
+	(59, '다맛나김치', '사람101', '2', '010-0101-0201', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 274, 'https://tagdetail.com/v/2AEQAAf803J', '안녕하세요. 다맛나김치입니다.', '#101를 팝니다.', 'http://localhost:8092/file/images/059.jpeg', '젓갈/김치', 'http://118.67.128.240:4301/jejumarket'),
+	(60, '알동네야채', '사람102', '2', '010-0101-0202', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 275, 'https://tagdetail.com/v/qalsWdRElO6', '안녕하세요. 알동네야채입니다.', '#102를 팝니다.', 'http://localhost:8092/file/images/060.jpeg', '농산물', 'http://118.67.128.240:4302/jejumarket'),
+	(61, '영이해산물', '사람103', '2', '010-0101-0203', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 276, 'https://tagdetail.com/v/G8sjUtOM6KG', '안녕하세요. 영이해산물입니다.', '#103를 팝니다.', 'http://localhost:8092/file/images/061.jpeg', '수산', 'http://118.67.128.240:4303/jejumarket'),
+	(62, '광명식당', '사람104', '2', '010-0101-0204', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 277, '', '안녕하세요. 광명식당입니다.', '#104를 팝니다.', '', '식사 및 음료', 'http://118.67.128.240:4304/jejumarket'),
+	(63, '영자수산', '사람105', '2', '010-0101-0205', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 278, 'https://tagdetail.com/v/CLsm2sBjaHZ', '안녕하세요. 영자수산입니다.', '#105를 팝니다.', 'http://localhost:8092/file/images/063.jpeg', '수산', 'http://118.67.128.240:4305/jejumarket'),
+	(64, '영은수산', '사람106', '2', '010-0101-0206', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 279, 'https://tagdetail.com/v/XhVvBkLoVSu', '안녕하세요. 영은수산입니다.', '#106를 팝니다.', 'http://localhost:8092/file/images/064.jpeg', '수산', 'http://118.67.128.240:4306/jejumarket'),
+	(65, '우리해산물', '사람107', '2', '010-0101-0207', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 280, 'https://tagdetail.com/v/CqxUQKN0esU', '안녕하세요. 우리해산물입니다.', '#107를 팝니다.', 'http://localhost:8092/file/images/065.jpeg', '수산', 'http://118.67.128.240:4307/jejumarket'),
+	(66, '주니네오메기떡', '사람108', '2', '010-0101-0208', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 281, 'https://tagdetail.com/v/5aa4fs7CrgC', '안녕하세요. 주니네오메기떡입니다.', '#108를 팝니다.', 'http://localhost:8092/file/images/066.jpeg', '상회/특산물', 'http://118.67.128.240:4308/jejumarket'),
+	(67, '아리곳간', '사람109', '2', '010-0101-0209', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 282, 'https://tagdetail.com/v/FQeHRPfnbKY', '안녕하세요. 아리곳간입니다.', '#109를 팝니다.', 'http://localhost:8092/file/images/067.jpeg', '상회/특산물', 'http://118.67.128.240:4309/jejumarket'),
+	(68, '통나무집', '사람110', '2', '010-0101-0210', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 283, 'https://tagdetail.com/v/MnB-O4dQoPr', '안녕하세요. 통나무집입니다.', '#110를 팝니다.', 'http://localhost:8092/file/images/068.jpeg', '수산', 'http://118.67.128.240:4310/jejumarket'),
+	(69, '소망수산', '사람111', '2', '010-0101-0211', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 284, 'https://tagdetail.com/v/9kzyNlrBsQu', '안녕하세요. 소망수산입니다.', '#111를 팝니다.', 'http://localhost:8092/file/images/069.jpeg', '수산', 'http://118.67.128.240:4311/jejumarket'),
+	(70, '남해수산', '사람112', '2', '010-0101-0212', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 285, 'https://tagdetail.com/v/ErH3q_b1pbc', '안녕하세요. 남해수산입니다.', '#112를 팝니다.', 'http://localhost:8092/file/images/070.jpeg', '수산', 'http://118.67.128.240:4312/jejumarket'),
+	(71, '제주축산', '사람113', '2', '010-0101-0213', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 286, 'https://tagdetail.com/v/cpLroes4GPT', '안녕하세요. 제주축산입니다.', '#113를 팝니다.', 'http://localhost:8092/file/images/071.jpeg', '정육', 'http://118.67.128.240:4313/jejumarket'),
+	(72, '통큰수산2', '사람114', '2', '010-0101-0214', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 287, 'https://tagdetail.com/v/X-tyZkfkEug', '안녕하세요. 통큰수산2입니다.', '#114를 팝니다.', 'http://localhost:8092/file/images/072.jpeg', '수산', 'http://118.67.128.240:4314/jejumarket'),
+	(73, '그때그집', '사람115', '2', '010-0101-0215', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 288, 'https://tagdetail.com/v/bma0SbyB42p', '안녕하세요. 그때그집입니다.', '#115를 팝니다.', 'http://localhost:8092/file/images/073.jpeg', '상회/특산물', 'http://118.67.128.240:4315/jejumarket'),
+	(74, '바다수산', '사람116', '2', '010-0101-0216', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 289, 'https://tagdetail.com/v/8iUYyMxno2h', '안녕하세요. 바다수산입니다.', '#116를 팝니다.', 'http://localhost:8092/file/images/074.jpeg', '수산', 'http://118.67.128.240:4316/jejumarket'),
+	(75, '탐라수산', '사람140', '2', '010-0101-0240', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 313, 'https://tagdetail.com/v/C4eDG4UW-ug', '안녕하세요. 탐라수산입니다.', '#140를 팝니다.', 'http://localhost:8092/file/images/075.jpeg', '수산', 'http://118.67.128.240:4340/jejumarket'),
+	(76, '형제수산', '사람139', '2', '010-0101-0239', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 312, 'https://tagdetail.com/v/-MpKo9LMypM', '안녕하세요. 형제수산입니다.', '#139를 팝니다.', 'http://localhost:8092/file/images/076.jpeg', '수산', 'http://118.67.128.240:4339/jejumarket'),
+	(77, '경희수산', '사람138', '2', '010-0101-0238', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 311, 'https://tagdetail.com/v/RuGb8YrwzRB', '안녕하세요. 경희수산입니다.', '#138를 팝니다.', 'http://localhost:8092/file/images/077.jpeg', '수산', 'http://118.67.128.240:4338/jejumarket'),
+	(78, '매일수산', '사람137', '2', '010-0101-0237', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 310, 'https://tagdetail.com/v/WT2ajFub3FA', '안녕하세요. 매일수산입니다.', '#137를 팝니다.', 'http://localhost:8092/file/images/078.jpeg', '수산', 'http://118.67.128.240:4337/jejumarket'),
+	(79, '신도매정육마트', '사람136', '2', '010-0101-0236', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 309, 'https://tagdetail.com/v/EMpiOyJMRid', '안녕하세요. 신도매정육마트입니다.', '#136를 팝니다.', 'http://localhost:8092/file/images/079.jpeg', '정육', 'http://118.67.128.240:4336/jejumarket'),
+	(80, '영자수산2', '사람135', '2', '010-0101-0235', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 308, '', '안녕하세요. 영자수산2입니다.', '#135를 팝니다.', '', '수산', 'http://118.67.128.240:4335/jejumarket'),
+	(81, '서귀포수산', '사람134', '2', '010-0101-0234', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 307, 'https://tagdetail.com/v/DvhggLvu7Xf', '안녕하세요. 서귀포수산입니다.', '#134를 팝니다.', 'http://localhost:8092/file/images/081.jpeg', '수산', 'http://118.67.128.240:4334/jejumarket'),
+	(82, '크라운마트', '사람133', '2', '010-0101-0233', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 306, 'https://tagdetail.com/v/Eiyr8jeqW9G', '안녕하세요. 크라운마트입니다.', '#133를 팝니다.', 'http://localhost:8092/file/images/082.jpeg', '생활잡화', 'http://118.67.128.240:4333/jejumarket'),
+	(83, '준호수산', '사람132', '2', '010-0101-0232', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 305, 'https://tagdetail.com/v/oB-F7GNuXWN', '안녕하세요. 준호수산입니다.', '#132를 팝니다.', 'http://localhost:8092/file/images/083.jpeg', '수산', 'http://118.67.128.240:4332/jejumarket'),
+	(84, '미화해산물', '사람131', '2', '010-0101-0231', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 304, 'https://tagdetail.com/v/HF4rFUaQgjf', '안녕하세요. 미화해산물입니다.', '#131를 팝니다.', 'http://localhost:8092/file/images/084.jpeg', '수산', 'http://118.67.128.240:4331/jejumarket'),
+	(85, '보림식육점', '사람130', '2', '010-0101-0230', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 303, 'https://tagdetail.com/v/t83OIeueFiQ', '안녕하세요. 보림식육점입니다.', '#130를 팝니다.', 'http://localhost:8092/file/images/085.jpeg', '정육', 'http://118.67.128.240:4330/jejumarket'),
+	(86, '먹거리시장', '사람129', '2', '010-0101-0229', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 302, '', '안녕하세요. 먹거리시장입니다.', '#129를 팝니다.', '', '상회/특산물', 'http://118.67.128.240:4329/jejumarket'),
+	(87, '토종정육점', '사람126', '2', '010-0101-0226', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 299, 'https://tagdetail.com/v/_vE38RZ_iVG', '안녕하세요. 토종정육점입니다.', '#126를 팝니다.', 'http://localhost:8092/file/images/087.jpeg', '정육', 'http://118.67.128.240:4326/jejumarket'),
+	(88, '혜경수산', '사람125', '2', '010-0101-0225', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 298, 'https://tagdetail.com/v/i45v-f-iZIo', '안녕하세요. 혜경수산입니다.', '#125를 팝니다.', 'http://localhost:8092/file/images/088.jpeg', '수산', 'http://118.67.128.240:4325/jejumarket'),
+	(89, '통큰수산1', '사람124', '2', '010-0101-0224', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 297, 'https://tagdetail.com/v/ETAo8T8xgo4', '안녕하세요. 통큰수산1입니다.', '#124를 팝니다.', 'http://localhost:8092/file/images/089.jpeg', '수산', 'http://118.67.128.240:4324/jejumarket'),
+	(90, '남경수산', '사람123', '2', '010-0101-0223', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 296, 'https://tagdetail.com/v/oPxzJIRCVtX', '안녕하세요. 남경수산입니다.', '#123를 팝니다.', 'http://localhost:8092/file/images/090.jpeg', '수산', 'http://118.67.128.240:4323/jejumarket'),
+	(91, '레인보우제주', '사람122', '2', '010-0101-0222', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 295, 'https://tagdetail.com/v/GrtNN9qTA51', '안녕하세요. 레인보우제주입니다.', '#122를 팝니다.', 'http://localhost:8092/file/images/091.jpeg', '상회/특산물', 'http://118.67.128.240:4322/jejumarket'),
+	(92, '영일수산', '사람121', '2', '010-0101-0221', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 294, 'https://tagdetail.com/v/uqgi3wQ8sXF', '안녕하세요. 영일수산입니다.', '#121를 팝니다.', 'http://localhost:8092/file/images/092.jpeg', '수산', 'http://118.67.128.240:4321/jejumarket'),
+	(93, '영해수산', '사람120', '2', '010-0101-0220', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 293, 'https://tagdetail.com/v/LXCAxE1_02I', '안녕하세요. 영해수산입니다.', '#120를 팝니다.', 'http://localhost:8092/file/images/093.jpeg', '수산', 'http://118.67.128.240:4320/jejumarket'),
+	(94, '천연김치', '사람119', '2', '010-0101-0219', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 292, 'https://tagdetail.com/v/Bg_rwobZqhQ', '안녕하세요. 천연김치입니다.', '#119를 팝니다.', 'http://localhost:8092/file/images/094.jpeg', '젓갈/김치', 'http://118.67.128.240:4319/jejumarket'),
+	(95, '송사부', '사람118', '2', '010-0101-0218', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 291, 'https://tagdetail.com/v/o-NrA51hnmF', '안녕하세요. 송사부입니다.', '#118를 팝니다.', 'http://localhost:8092/file/images/095.jpeg', '식사 및 음료', 'http://118.67.128.240:4318/jejumarket'),
+	(96, '정아어물', '사람117', '2', '010-0101-0217', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 290, 'https://tagdetail.com/v/qH5QSIv40Jr', '안녕하세요. 정아어물입니다.', '#117를 팝니다.', 'http://localhost:8092/file/images/096.jpeg', '수산', 'http://118.67.128.240:4317/jejumarket'),
+	(97, '우리양념집', '사람10', '3', '010-0101-0110', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 183, 'https://tagdetail.com/v/Gc0t2HQvaAK', '안녕하세요. 우리양념집입니다.', '#10를 팝니다.', 'http://localhost:8092/file/images/097.jpeg', '젓갈/김치', 'http://118.67.128.240:4210/jejumarket'),
+	(98, '한라통닭', '사람197', '3', '010-0101-0297', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 370, 'https://tagdetail.com/v/eLX00KDthKO', '안녕하세요. 한라통닭입니다.', '#197를 팝니다.', 'http://localhost:8092/file/images/098.jpeg', '약/치킨', 'http://118.67.128.240:4397/jejumarket'),
+	(99, '현대식육점', '사람198', '3', '010-0101-0298', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 371, 'https://tagdetail.com/v/gZFrn5kDRvN', '안녕하세요. 현대식육점입니다.', '#198를 팝니다.', 'http://localhost:8092/file/images/099.jpeg', '정육', 'http://118.67.128.240:4398/jejumarket'),
+	(100, '삼해건어물', '사람199', '3', '010-0101-0299', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 372, 'https://tagdetail.com/v/q3ergjOZWJj', '안녕하세요. 삼해건어물입니다.', '#199를 팝니다.', 'http://localhost:8092/file/images/100.jpeg', '수산', 'http://118.67.128.240:4399/jejumarket'),
+	(101, '옥이네농산물', '사람200', '3', '010-0101-0300', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 373, 'https://tagdetail.com/v/HGHh59nqMXa', '안녕하세요. 옥이네농산물입니다.', '#200를 팝니다.', 'http://localhost:8092/file/images/101.jpeg', '농산물', 'http://118.67.128.240:4400/jejumarket'),
+	(102, '금복식당', '사람201', '3', '010-0101-0301', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 374, '', '안녕하세요. 금복식당입니다.', '#201를 팝니다.', '', '식사 및 음료', 'http://118.67.128.240:4401/jejumarket'),
+	(103, '풍년농산물직판장', '사람202', '3', '010-0101-0302', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 375, 'https://tagdetail.com/v/OqNxXPrLxIW', '안녕하세요. 풍년농산물직판장입니다.', '#202를 팝니다.', 'http://localhost:8092/file/images/103.jpeg', '농산물', 'http://118.67.128.240:4402/jejumarket'),
+	(104, '풍년양념코너', '사람203', '3', '010-0101-0303', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 376, '', '안녕하세요. 풍년양념코너입니다.', '#203를 팝니다.', '', '젓갈/김치', 'http://118.67.128.240:4403/jejumarket'),
+	(105, '빵정옥제과', '사람204', '3', '010-0101-0304', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 377, 'https://tagdetail.com/v/XW3s63ZPsat', '안녕하세요. 빵정옥제과입니다.', '#204를 팝니다.', 'http://localhost:8092/file/images/105.jpeg', '식사 및 음료', 'http://118.67.128.240:4404/jejumarket'),
+	(106, '반도기름집', '사람205', '3', '010-0101-0305', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 378, 'https://tagdetail.com/v/vdkistd4xFN', '안녕하세요. 반도기름집입니다.', '#205를 팝니다.', 'http://localhost:8092/file/images/106.jpeg', '상회/특산물', 'http://118.67.128.240:4405/jejumarket'),
+	(107, '마농치킨', '사람206', '3', '010-0101-0306', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 379, 'https://tagdetail.com/v/MoaAyrwaaKd', '안녕하세요. 마농치킨입니다.', '#206를 팝니다.', 'http://localhost:8092/file/images/107.jpeg', '약/치킨', 'http://118.67.128.240:4406/jejumarket'),
+	(108, '전주상회', '사람207', '3', '010-0101-0307', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 380, 'https://tagdetail.com/v/4ZFaQomaxVn', '안녕하세요. 전주상회입니다.', '#207를 팝니다.', 'http://localhost:8092/file/images/108.jpeg', '상회/특산물', 'http://118.67.128.240:4407/jejumarket'),
+	(109, '올레해산물', '사람208', '3', '010-0101-0308', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 381, 'https://tagdetail.com/v/anUyWB-_3Nc', '안녕하세요. 올레해산물입니다.', '#208를 팝니다.', 'http://localhost:8092/file/images/109.jpeg', '수산', 'http://118.67.128.240:4408/jejumarket'),
+	(110, '황금어장', '사람209', '3', '010-0101-0309', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 382, 'https://tagdetail.com/v/X2nEIRTfBuk', '안녕하세요. 황금어장입니다.', '#209를 팝니다.', 'http://localhost:8092/file/images/110.jpeg', '수산', 'http://118.67.128.240:4409/jejumarket'),
+	(111, '드럼공간', '사람210', '3', '010-0101-0310', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 383, '', '안녕하세요. 드럼공간입니다.', '#210를 팝니다.', '', '상회/특산물', 'http://118.67.128.240:4410/jejumarket'),
+	(112, '숯불오리바베큐', '사람211', '3', '010-0101-0311', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 384, 'https://tagdetail.com/v/esadvJ31I2r', '안녕하세요. 숯불오리바베큐입니다.', '#211를 팝니다.', 'http://localhost:8092/file/images/112.jpeg', '식사 및 음료', 'http://118.67.128.240:4411/jejumarket'),
+	(113, '사남매포장', '사람235', '3', '010-0101-0335', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 408, 'https://tagdetail.com/v/ZR7xMRk6SxG', '안녕하세요. 사남매포장입니다.', '#235를 팝니다.', 'http://localhost:8092/file/images/113.jpeg', '농산물', 'http://118.67.128.240:4435/jejumarket'),
+	(114, '마마네회포장', '사람234', '3', '010-0101-0334', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 407, 'https://tagdetail.com/v/4fn1qkttlNJ', '안녕하세요. 마마네회포장입니다.', '#234를 팝니다.', 'http://localhost:8092/file/images/114.jpeg', '수산', 'http://118.67.128.240:4434/jejumarket'),
+	(115, '도고리패션', '사람233', '3', '010-0101-0333', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 406, 'https://tagdetail.com/v/o9o5gMuXa4Z', '안녕하세요. 도고리패션입니다.', '#233를 팝니다.', 'http://localhost:8092/file/images/115.jpeg', '생활잡화', 'http://118.67.128.240:4433/jejumarket'),
+	(116, '럭셔리단란주점', '사람232', '3', '010-0101-0332', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 405, '', '안녕하세요. 럭셔리단란주점입니다.', '#232를 팝니다.', '', '생활잡화', 'http://118.67.128.240:4432/jejumarket'),
+	(117, '호성농수산', '사람231', '3', '010-0101-0331', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 404, '', '안녕하세요. 호성농수산입니다.', '#231를 팝니다.', '', '농산물', 'http://118.67.128.240:4431/jejumarket'),
+	(118, '냉삼동통이네', '사람230', '3', '010-0101-0330', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 403, 'https://tagdetail.com/v/fIxMDRkeGYt', '안녕하세요. 냉삼동통이네입니다.', '#230를 팝니다.', 'http://localhost:8092/file/images/118119.jpeg', '정육', 'http://118.67.128.240:4430/jejumarket'),
+	(119, '냉삼동통이네', '사람229', '3', '010-0101-0329', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 402, 'https://tagdetail.com/v/fIxMDRkeGYt', '안녕하세요. 냉삼동통이네입니다.', '#229를 팝니다.', 'http://localhost:8092/file/images/118119.jpeg', '정육', 'http://118.67.128.240:4429/jejumarket'),
+	(120, '수진수산', '사람228', '3', '010-0101-0328', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 401, 'https://tagdetail.com/v/mTcvPi7g40H', '안녕하세요. 수진수산입니다.', '#228를 팝니다.', 'http://localhost:8092/file/images/120.jpeg', '수산', 'http://118.67.128.240:4428/jejumarket'),
+	(121, '시장목어물전', '사람227', '3', '010-0101-0327', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 400, '', '안녕하세요. 시장목어물전입니다.', '#227를 팝니다.', '', '수산', 'http://118.67.128.240:4427/jejumarket'),
+	(122, '부산수산', '사람226', '3', '010-0101-0326', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 399, 'https://tagdetail.com/v/marSAX7kYXJ', '안녕하세요. 부산수산입니다.', '#226를 팝니다.', 'http://localhost:8092/file/images/122.jpeg', '수산', 'http://118.67.128.240:4426/jejumarket'),
+	(123, '덕이죽집', '사람225', '3', '010-0101-0325', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 398, 'https://tagdetail.com/v/_-BplLr5s3l', '안녕하세요. 덕이죽집입니다.', '#225를 팝니다.', 'http://localhost:8092/file/images/123.jpeg', '식사 및 음료', 'http://118.67.128.240:4425/jejumarket'),
+	(124, '메밀치킨', '사람224', '3', '010-0101-0324', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 397, 'https://tagdetail.com/v/3sr6iFeJ_sr', '안녕하세요. 메밀치킨입니다.', '#224를 팝니다.', 'http://localhost:8092/file/images/124.jpeg', '약/치킨', 'http://118.67.128.240:4424/jejumarket'),
+	(125, '햇빛농수산', '사람223', '3', '010-0101-0323', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 396, 'https://tagdetail.com/v/DkAm6VbZc3a', '안녕하세요. 햇빛농수산입니다.', '#223를 팝니다.', 'http://localhost:8092/file/images/125.jpeg', '농산물', 'http://118.67.128.240:4423/jejumarket'),
+	(126, '제라몽', '사람222', '3', '010-0101-0322', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 395, 'https://tagdetail.com/v/bmNEK2z7-cN', '안녕하세요. 제라몽입니다.', '#222를 팝니다.', 'http://localhost:8092/file/images/126.jpeg', '상회/특산물', 'http://118.67.128.240:4422/jejumarket'),
+	(127, '영산종합농산물', '사람221', '3', '010-0101-0321', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 394, 'https://tagdetail.com/v/dwVl36xhLyi', '안녕하세요. 영산종합농산물입니다.', '#221를 팝니다.', 'http://localhost:8092/file/images/127.jpeg', '농산물', 'http://118.67.128.240:4421/jejumarket'),
+	(128, '한창상회', '사람220', '3', '010-0101-0320', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 393, 'https://tagdetail.com/v/rEsAey1bat_', '안녕하세요. 한창상회입니다.', '#220를 팝니다.', 'http://localhost:8092/file/images/128.jpeg', '젓갈/김치', 'http://118.67.128.240:4420/jejumarket'),
+	(129, '우도수산', '사람33', '3', '010-0101-0133', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 206, 'https://tagdetail.com/v/mtXz0gojKrr', '안녕하세요. 우도수산입니다.', '#33를 팝니다.', 'http://localhost:8092/file/images/129.jpeg', '수산', 'http://118.67.128.240:4233/jejumarket'),
+	(130, '유씨상회도야지짱이네강정', '사람9', '3', '010-0101-0109', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 182, 'https://tagdetail.com/v/j0KlDvpykkd', '안녕하세요. 유씨상회도야지짱이네강정입니다.', '#9를 팝니다.', 'http://localhost:8092/file/images/130.jpeg', '약/치킨', 'http://118.67.128.240:4209/jejumarket'),
+	(131, '진승식품', '사람215', '3', '010-0101-0315', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 388, 'https://tagdetail.com/v/oMGx4WHtWKG', '안녕하세요. 진승식품입니다.', '#215를 팝니다.', 'http://localhost:8092/file/images/131.jpeg', '젓갈/김치', 'http://118.67.128.240:4415/jejumarket'),
+	(132, '제주벨미', '사람236', '4', '010-0101-0336', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 409, 'https://tagdetail.com/v/sJwj_ofU4Rx', '안녕하세요. 제주벨미입니다.', '#236를 팝니다.', 'http://localhost:8092/file/images/132.jpeg', '상회/특산물', 'http://118.67.128.240:4436/jejumarket'),
+	(133, '한라당', '사람237', '4', '010-0101-0337', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 410, 'https://tagdetail.com/v/-SkQK_7kMMn', '안녕하세요. 한라당입니다.', '#237를 팝니다.', 'http://localhost:8092/file/images/133.jpeg', '상회/특산물', 'http://118.67.128.240:4437/jejumarket'),
+	(134, '삼겹주먹밥', '사람238', '4', '010-0101-0338', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 411, 'https://tagdetail.com/v/iZzpXjyvQy8', '안녕하세요. 삼겹주먹밥입니다.', '#238를 팝니다.', 'http://localhost:8092/file/images/134.jpeg', '식사 및 음료', 'http://118.67.128.240:4438/jejumarket'),
+	(135, '우정회센타', '사람239', '4', '010-0101-0339', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 412, 'https://tagdetail.com/v/hxj1UTx5Lfn', '안녕하세요. 우정회센타입니다.', '#239를 팝니다.', 'http://localhost:8092/file/images/135.jpeg', '수산', 'http://118.67.128.240:4439/jejumarket'),
+	(136, '제일떡집1', '사람240', '4', '010-0101-0340', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 413, 'https://tagdetail.com/v/tLpbrmruQp2', '안녕하세요. 제일떡집1입니다.', '#240를 팝니다.', 'http://localhost:8092/file/images/136.jpeg', '상회/특산물', 'http://118.67.128.240:4440/jejumarket'),
+	(137, '돌멩이', '사람241', '4', '010-0101-0341', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 414, 'https://tagdetail.com/v/a0q6qnB5cCo', '안녕하세요. 돌멩이입니다.', '#241를 팝니다.', 'http://localhost:8092/file/images/137.jpeg', '상회/특산물', 'http://118.67.128.240:4441/jejumarket'),
+	(138, '초콜릿백화점', '사람242', '4', '010-0101-0342', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 415, '', '안녕하세요. 초콜릿백화점입니다.', '#242를 팝니다.', '', '상회/특산물', 'http://118.67.128.240:4442/jejumarket'),
+	(139, '서귀포올레초콜렛', '사람243', '4', '010-0101-0343', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 416, 'https://tagdetail.com/v/ut22mAeWZ05', '안녕하세요. 서귀포올레초콜렛입니다.', '#243를 팝니다.', 'http://localhost:8092/file/images/139.jpeg', '상회/특산물', 'http://118.67.128.240:4443/jejumarket'),
+	(140, '호성이네선물가게', '사람244', '4', '010-0101-0344', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 417, 'https://tagdetail.com/v/FHoK3wOvmHw', '안녕하세요. 호성이네선물가게입니다.', '#244를 팝니다.', 'http://localhost:8092/file/images/140141.jpeg', '상회/특산물', 'http://118.67.128.240:4444/jejumarket'),
+	(141, '호성이네농장', '사람245', '4', '010-0101-0345', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 418, 'https://tagdetail.com/v/FHoK3wOvmHw', '안녕하세요. 호성이네농장입니다.', '#245를 팝니다.', 'http://localhost:8092/file/images/140141.jpeg', '상회/특산물', 'http://118.67.128.240:4445/jejumarket'),
+	(142, '우정마트', '사람246', '4', '010-0101-0346', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 419, 'https://tagdetail.com/v/RMOYd3eIDiP', '안녕하세요. 우정마트입니다.', '#246를 팝니다.', 'http://localhost:8092/file/images/142.jpeg', '생활잡화', 'http://118.67.128.240:4446/jejumarket'),
+	(143, '청춘이오란다', '사람247', '4', '010-0101-0347', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 420, '', '안녕하세요. 청춘이오란다입니다.', '#247를 팝니다.', '', '상회/특산물', 'http://118.67.128.240:4447/jejumarket'),
+	(144, '올레전복빵', '사람248', '4', '010-0101-0348', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 421, 'https://tagdetail.com/v/1KaHn18QlXV', '안녕하세요. 올레전복빵입니다.', '#248를 팝니다.', 'http://localhost:8092/file/images/144.jpeg', '상회/특산물', 'http://118.67.128.240:4448/jejumarket'),
+	(145, '시트러스베이커리', '사람249', '4', '010-0101-0349', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 422, 'https://tagdetail.com/v/9WqauRxeYJB', '안녕하세요. 시트러스베이커리입니다.', '#249를 팝니다.', 'http://localhost:8092/file/images/145.jpeg', '상회/특산물', 'http://118.67.128.240:4449/jejumarket'),
+	(146, '카페블루하우스', '사람250', '4', '010-0101-0350', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 423, 'https://tagdetail.com/v/Xl9vjklcUsm', '안녕하세요. 카페블루하우스입니다.', '#250를 팝니다.', 'http://localhost:8092/file/images/146.jpeg', '식사 및 음료', 'http://118.67.128.240:4450/jejumarket'),
+	(147, '제주뚜럼', '사람251', '4', '010-0101-0351', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 424, '', '안녕하세요. 제주뚜럼입니다.', '#251를 팝니다.', '', '식사 및 음료', 'http://118.67.128.240:4451/jejumarket'),
+	(148, '남매네흑돼지', '사람262', '4', '010-0101-0362', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 435, 'https://tagdetail.com/v/Zv8CPhL9eT6', '안녕하세요. 남매네흑돼지입니다.', '#262를 팝니다.', 'http://localhost:8092/file/images/148.jpeg', '식사 및 음료', 'http://118.67.128.240:4462/jejumarket'),
+	(149, '올레 게튀김', '사람261', '4', '010-0101-0361', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 434, 'https://tagdetail.com/v/HewUEUI1jTV', '안녕하세요. 올레 게튀김입니다.', '#261를 팝니다.', 'http://localhost:8092/file/images/149.jpeg', '상회/특산물', 'http://118.67.128.240:4461/jejumarket'),
+	(150, '원조특산품할인매장', '사람260', '4', '010-0101-0360', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 433, 'https://tagdetail.com/v/9PuOzgzfmW3', '안녕하세요. 원조특산품할인매장입니다.', '#260를 팝니다.', 'http://localhost:8092/file/images/150.jpeg', '생활잡화', 'http://118.67.128.240:4460/jejumarket'),
+	(151, '귤하르방', '사람259', '4', '010-0101-0359', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 432, 'https://tagdetail.com/v/nWUvipK5Z52', '안녕하세요. 귤하르방입니다.', '#259를 팝니다.', 'http://localhost:8092/file/images/151.jpeg', '상회/특산물', 'http://118.67.128.240:4459/jejumarket'),
+	(152, '매일통닭', '사람258', '4', '010-0101-0358', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 431, 'https://tagdetail.com/v/79Eomx5BsFx', '안녕하세요. 매일통닭입니다.', '#258를 팝니다.', 'http://localhost:8092/file/images/152.jpeg', '약/치킨', 'http://118.67.128.240:4458/jejumarket'),
+	(153, '벤지네', '사람257', '4', '010-0101-0357', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 430, 'https://tagdetail.com/v/vgdLXWUd5Rq', '안녕하세요. 벤지네입니다.', '#257를 팝니다.', 'http://localhost:8092/file/images/153.jpeg', '생활잡화', 'http://118.67.128.240:4457/jejumarket'),
+	(154, '게판5분전', '사람256', '4', '010-0101-0356', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 429, 'https://tagdetail.com/v/lrex38C1BMa', '안녕하세요. 게판5분전입니다.', '#256를 팝니다.', 'http://localhost:8092/file/images/154.jpeg', '상회/특산물', 'http://118.67.128.240:4456/jejumarket'),
+	(155, '현우네분식', '사람255', '4', '010-0101-0355', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 428, 'https://tagdetail.com/v/EDw3lvOKXOS', '안녕하세요. 현우네분식입니다.', '#255를 팝니다.', 'http://localhost:8092/file/images/155.jpeg', '식사 및 음료', 'http://118.67.128.240:4455/jejumarket'),
+	(156, '동글이흑돼지바베큐', '사람255', '4', '010-0101-0355', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 19', 428, 'https://tagdetail.com/v/YF_FbxtTe-B', '안녕하세요. 동글이흑돼지바베큐입니다.', '#255를 팝니다.', 'http://localhost:8092/file/images/156.jpeg', '식사 및 음료', 'http://118.67.128.240:4455/jejumarket'),
+	(157, '씨앗호떡', '사람263', '4', '010-0101-0363', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 436, 'https://tagdetail.com/v/fsNCEBSvyQq', '안녕하세요. 씨앗호떡입니다.', '#263를 팝니다.', 'http://localhost:8092/file/images/157.jpeg', '식사 및 음료', 'http://118.67.128.240:4463/jejumarket'),
+	(158, '비테비테', '사람254', '4', '010-0101-0354', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 427, 'https://tagdetail.com/v/RrQxpdfX9yo', '안녕하세요. 비테비테입니다.', '#254를 팝니다.', 'http://localhost:8092/file/images/158.jpeg', '식사 및 음료', 'http://118.67.128.240:4454/jejumarket'),
+	(159, '달인해산물', '사람253', '4', '010-0101-0353', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 426, 'https://tagdetail.com/v/iNWNYbVeamf', '안녕하세요. 달인해산물입니다.', '#253를 팝니다.', 'http://localhost:8092/file/images/159.jpeg', '수산', 'http://118.67.128.240:4453/jejumarket'),
+	(160, '달인수산', '사람252', '4', '010-0101-0352', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 425, 'https://tagdetail.com/v/vz31jQ4zUul', '안녕하세요. 달인수산입니다.', '#252를 팝니다.', 'http://localhost:8092/file/images/160.jpeg', '수산', 'http://118.67.128.240:4452/jejumarket'),
+	(161, '우도수산', '사람219', '5', '010-0101-0319', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 392, '', '안녕하세요. 우도수산입니다.', '#219를 팝니다.', '', '수산', 'http://118.67.128.240:4419/jejumarket'),
+	(162, '족발애살다', '사람4', '5', '010-0101-0104', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 177, 'https://tagdetail.com/v/ZWHVblpDvkq', '안녕하세요. 족발애살다입니다.', '#4를 팝니다.', 'http://localhost:8092/file/images/162.jpeg', '상회/특산물', 'http://118.67.128.240:4204/jejumarket'),
+	(163, '한라고추', '사람34', '5', '010-0101-0134', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 207, 'https://tagdetail.com/v/eLX00KDthKO', '안녕하세요. 한라고추입니다.', '#34를 팝니다.', 'http://localhost:8092/file/images/163.jpeg', '농산물', 'http://118.67.128.240:4234/jejumarket'),
+	(164, '돼지네땅콩만두', '사람35', '5', '010-0101-0135', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 208, 'https://tagdetail.com/v/l5neEUM2kTn', '안녕하세요. 돼지네땅콩만두입니다.', '#35를 팝니다.', 'http://localhost:8092/file/images/164.jpeg', '식사 및 음료', 'http://118.67.128.240:4235/jejumarket'),
+	(165, '제일떡집2', '사람36', '5', '010-0101-0136', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 209, 'https://tagdetail.com/v/XCVlQzfwGmm', '안녕하세요. 제일떡집2입니다.', '#36를 팝니다.', 'http://localhost:8092/file/images/165.jpeg', '식사 및 음료', 'http://118.67.128.240:4236/jejumarket'),
+	(166, '올레맛슐랭', '사람37', '5', '010-0101-0137', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 210, 'https://tagdetail.com/v/E4kRzj7hBzN', '안녕하세요. 올레맛슐랭입니다.', '#37를 팝니다.', 'http://localhost:8092/file/images/166.jpeg', '식사 및 음료', 'http://118.67.128.240:4237/jejumarket'),
+	(167, '제주장인의집', '사람38', '5', '010-0101-0138', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 211, 'https://tagdetail.com/v/lMvhCT5PGZ1', '안녕하세요. 제주장인의집입니다.', '#38를 팝니다.', 'http://localhost:8092/file/images/167.jpeg', '식사 및 음료', 'http://118.67.128.240:4238/jejumarket'),
+	(168, '올레꼬치', '사람39', '5', '010-0101-0139', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 212, 'https://tagdetail.com/v/TZTWPEtGbyy', '안녕하세요. 올레꼬치입니다.', '#39를 팝니다.', 'http://localhost:8092/file/images/168.jpeg', '식사 및 음료', 'http://118.67.128.240:4239/jejumarket'),
+	(169, '흑돼지철판구이', '사람40', '5', '010-0101-0140', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 213, 'https://tagdetail.com/v/e_kXTcjZ6yV', '안녕하세요. 흑돼지철판구이입니다.', '#40를 팝니다.', 'http://localhost:8092/file/images/169.jpeg', '식사 및 음료', 'http://118.67.128.240:4240/jejumarket'),
+	(170, '오징어 버터구이', '사람41', '5', '010-0101-0141', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 214, 'https://tagdetail.com/v/Ttp-kNUWKtd', '안녕하세요. 오징어 버터구이입니다.', '#41를 팝니다.', 'http://localhost:8092/file/images/170.jpeg', '식사 및 음료', 'http://118.67.128.240:4241/jejumarket'),
+	(171, '탕후루', '사람42', '5', '010-0101-0142', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 215, 'https://tagdetail.com/v/ADjYwzeQ90u', '안녕하세요. 탕후루입니다.', '#42를 팝니다.', 'http://localhost:8092/file/images/171.jpeg', '식사 및 음료', 'http://118.67.128.240:4242/jejumarket'),
+	(172, '올레선물의집', '사람43', '5', '010-0101-0143', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 216, 'https://tagdetail.com/v/VF93U6qqOB_', '안녕하세요. 올레선물의집입니다.', '#43를 팝니다.', 'http://localhost:8092/file/images/172.jpeg', '생활잡화', 'http://118.67.128.240:4243/jejumarket'),
+	(173, '흑돼지김치말이', '사람44', '5', '010-0101-0144', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 217, 'https://tagdetail.com/v/J7UqIkw223d', '안녕하세요. 흑돼지김치말이입니다.', '#44를 팝니다.', 'http://localhost:8092/file/images/173.jpeg', '식사 및 음료', 'http://118.67.128.240:4244/jejumarket'),
+	(174, '딱이네 닭발', '사람45', '5', '010-0101-0145', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 218, 'https://tagdetail.com/v/VC0w_q1cHCa', '안녕하세요. 딱이네 닭발입니다.', '#45를 팝니다.', 'http://localhost:8092/file/images/174.jpeg', '식사 및 음료', 'http://118.67.128.240:4245/jejumarket'),
+	(175, '만딱', '사람46', '5', '010-0101-0146', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 219, 'https://tagdetail.com/v/31MfTbYtgdS', '안녕하세요. 만딱입니다.', '#46를 팝니다.', 'http://localhost:8092/file/images/175.jpeg', '상회/특산물', 'http://118.67.128.240:4246/jejumarket'),
+	(176, '칠십리제주', '사람47', '5', '010-0101-0147', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 220, 'https://tagdetail.com/v/fstA52bnrJ9', '안녕하세요. 칠십리제주입니다.', '#47를 팝니다.', 'http://localhost:8092/file/images/176.jpeg', '상회/특산물', 'http://118.67.128.240:4247/jejumarket'),
+	(177, '또시', '사람48', '5', '010-0101-0148', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 221, 'https://tagdetail.com/v/3H1oPWpY1D5', '안녕하세요. 또시입니다.', '#48를 팝니다.', 'http://localhost:8092/file/images/177.jpeg', '상회/특산물', 'http://118.67.128.240:4248/jejumarket'),
+	(178, '시몬베드로', '사람49', '5', '010-0101-0149', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 222, 'https://tagdetail.com/v/rHyxYFjnurl', '안녕하세요. 시몬베드로입니다.', '#49를 팝니다.', 'http://localhost:8092/file/images/178.jpeg', '수산', 'http://118.67.128.240:4249/jejumarket'),
+	(179, '뚱순이꼬마김밥', '사람50', '5', '010-0101-0150', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 223, 'https://tagdetail.com/v/zGqDs6m2gn5', '안녕하세요. 뚱순이꼬마김밥입니다.', '#50를 팝니다.', 'http://localhost:8092/file/images/179.jpeg', '식사 및 음료', 'http://118.67.128.240:4250/jejumarket'),
+	(180, '추억의분식', '사람51', '5', '010-0101-0151', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 224, 'https://tagdetail.com/v/5qHOzeMnDyM', '안녕하세요. 추억의분식입니다.', '#51를 팝니다.', 'http://localhost:8092/file/images/180.jpeg', '식사 및 음료', 'http://118.67.128.240:4251/jejumarket'),
+	(181, '두학유리', '사람52', '5', '010-0101-0152', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 225, '', '안녕하세요. 두학유리입니다.', '#52를 팝니다.', '', '생활잡화', 'http://118.67.128.240:4252/jejumarket'),
+	(182, '경식상회', '사람53', '5', '010-0101-0153', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 226, 'https://tagdetail.com/v/aoyiGLklObw', '안녕하세요. 경식상회입니다.', '#53를 팝니다.', 'http://localhost:8092/file/images/182.jpeg', '농산물', 'http://118.67.128.240:4253/jejumarket'),
+	(183, '매일청과', '사람54', '5', '010-0101-0154', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 227, 'https://tagdetail.com/v/6Q-WZ7B8umz', '안녕하세요. 매일청과입니다.', '#54를 팝니다.', 'http://localhost:8092/file/images/183.jpeg', '농산물', 'http://118.67.128.240:4254/jejumarket'),
+	(184, '5번출구해물파전', '사람55', '5', '010-0101-0155', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 228, '', '안녕하세요. 5번출구해물파전입니다.', '#55를 팝니다.', '', '식사 및 음료', 'http://118.67.128.240:4255/jejumarket'),
+	(185, '놀이터식육식당', '사람7', '5', '010-0101-0107', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 180, 'https://tagdetail.com/v/Xu7qHplfwp8', '안녕하세요. 놀이터식육식당입니다.', '#7를 팝니다.', 'http://localhost:8092/file/images/185.jpeg', '식사 및 음료', 'http://118.67.128.240:4207/jejumarket'),
+	(186, '서귀떡방앗간', '사람65', '5', '010-0101-0165', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 238, 'https://tagdetail.com/v/oImanPLaxGM', '안녕하세요. 서귀떡방앗간입니다.', '#65를 팝니다.', 'http://localhost:8092/file/images/186.jpeg', '식사 및 음료', 'http://118.67.128.240:4265/jejumarket'),
+	(187, '달인농수산물', '사람64', '5', '010-0101-0164', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 237, 'https://tagdetail.com/v/rL9Iz_Pr-Pl', '안녕하세요. 달인농수산물입니다.', '#64를 팝니다.', 'http://localhost:8092/file/images/187.jpeg', '농산물', 'http://118.67.128.240:4264/jejumarket'),
+	(188, '남매네왕갈치', '사람63', '5', '010-0101-0163', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 236, '', '안녕하세요. 남매네왕갈치입니다.', '#63를 팝니다.', '', '수산', 'http://118.67.128.240:4263/jejumarket'),
+	(189, '불로초흑돼지전문점', '사람62', '5', '010-0101-0162', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 235, '', '안녕하세요. 불로초흑돼지전문점입니다.', '#62를 팝니다.', '', '상회/특산물', 'http://118.67.128.240:4262/jejumarket'),
+	(190, '아빠는농부다', '사람61', '5', '010-0101-0161', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 234, 'https://tagdetail.com/v/0qpYt5tOBsK', '안녕하세요. 아빠는농부다입니다.', '#61를 팝니다.', 'http://localhost:8092/file/images/190.jpeg', '농산물', 'http://118.67.128.240:4261/jejumarket'),
+	(191, '미소', '사람60', '5', '010-0101-0160', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 233, 'https://tagdetail.com/v/UwGaywo6ifV', '안녕하세요. 미소입니다.', '#60를 팝니다.', 'http://localhost:8092/file/images/191.jpeg', '농산물', 'http://118.67.128.240:4260/jejumarket'),
+	(192, '농부네', '사람59', '5', '010-0101-0159', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 232, 'https://tagdetail.com/v/yIV2sY2qevg', '안녕하세요. 농부네입니다.', '#59를 팝니다.', 'http://localhost:8092/file/images/192.jpeg', '농산물', 'http://118.67.128.240:4259/jejumarket'),
+	(193, '임박사1', '사람58', '5', '010-0101-0158', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 231, 'https://tagdetail.com/v/LrVii5RP2rH', '안녕하세요. 임박사1입니다.', '#58를 팝니다.', 'http://localhost:8092/file/images/193.jpeg', '농산물', 'http://118.67.128.240:4258/jejumarket'),
+	(194, '신성제주가', '사람57', '5', '010-0101-0157', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 230, 'https://tagdetail.com/v/rlPvMdAHrv_', '안녕하세요. 신성제주가입니다.', '#57를 팝니다.', 'http://localhost:8092/file/images/194.jpeg', '농산물', 'http://118.67.128.240:4257/jejumarket'),
+	(195, '덕흥고추상회', '사람56', '5', '010-0101-0156', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 229, 'https://tagdetail.com/v/GL2WxFgVG9u', '안녕하세요. 덕흥고추상회입니다.', '#56를 팝니다.', 'http://localhost:8092/file/images/195.jpeg', '농산물', 'http://118.67.128.240:4256/jejumarket'),
+	(196, '임박사2', '사람8', '5', '010-0101-0108', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 181, 'https://tagdetail.com/v/r5GiC0keMdV', '안녕하세요. 임박사2입니다.', '#8를 팝니다.', 'http://localhost:8092/file/images/196.jpeg', '약/치킨', 'http://118.67.128.240:4208/jejumarket'),
+	(197, '덕흥야채', '사람66', '5', '010-0101-0166', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 239, 'https://tagdetail.com/v/XH4MAHcesYL', '안녕하세요. 덕흥야채입니다.', '#66를 팝니다.', 'http://localhost:8092/file/images/197.jpeg', '정육', 'http://118.67.128.240:4266/jejumarket'),
+	(198, '애플수박쥬스', '사람67', '5', '010-0101-0167', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 240, 'https://tagdetail.com/v/ytIeSW6_bXy', '안녕하세요. 애플수박쥬스입니다.', '#67를 팝니다.', 'http://localhost:8092/file/images/198.jpeg', '식사 및 음료', 'http://118.67.128.240:4267/jejumarket'),
+	(199, '인태농수산물', '사람68', '5', '010-0101-0168', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 241, 'https://tagdetail.com/v/PEG3Gh08he5', '안녕하세요. 인태농수산물입니다.', '#68를 팝니다.', 'http://localhost:8092/file/images/199.jpeg', '농산물', 'http://118.67.128.240:4268/jejumarket'),
+	(200, '대성조명', '사람216', '6', '010-0101-0316', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 389, 'https://tagdetail.com/v/OY7JiH0TS5C', '안녕하세요. 대성조명입니다.', '#216를 팝니다.', 'http://localhost:8092/file/images/200.jpeg', '생활잡화', 'http://118.67.128.240:4416/jejumarket'),
+	(201, '제주농수산', '사람217', '6', '010-0101-0317', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 390, 'https://tagdetail.com/v/W7vDCSYJxDa', '안녕하세요. 제주농수산입니다.', '#217를 팝니다.', 'http://localhost:8092/file/images/201.jpeg', '농산물', 'http://118.67.128.240:4417/jejumarket'),
+	(202, '민수네귤농장', '사람218', '6', '010-0101-0318', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 391, 'https://tagdetail.com/v/rvhN69o7QPE', '안녕하세요. 민수네귤농장입니다.', '#218를 팝니다.', 'http://localhost:8092/file/images/202.jpeg', '농산물', 'http://118.67.128.240:4418/jejumarket'),
+	(203, '민희네떡집', '사람214', '6', '010-0101-0314', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 387, 'https://tagdetail.com/v/sGUtJMCl9jQ', '안녕하세요. 민희네떡집입니다.', '#214를 팝니다.', 'http://localhost:8092/file/images/203.jpeg', '상회/특산물', 'http://118.67.128.240:4414/jejumarket'),
+	(204, '임가네수산', '사람213', '6', '010-0101-0313', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 386, 'https://tagdetail.com/v/RaBlGDQgezZ', '안녕하세요. 임가네수산입니다.', '#213를 팝니다.', 'http://localhost:8092/file/images/204.jpeg', '수산', 'http://118.67.128.240:4413/jejumarket'),
+	(205, '임가네청과', '사람212', '6', '010-0101-0312', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 385, 'https://tagdetail.com/v/6P38tKHvNPM', '안녕하세요. 임가네청과입니다.', '#212를 팝니다.', 'http://localhost:8092/file/images/205.jpeg', '농산물', 'http://118.67.128.240:4412/jejumarket'),
+	(206, '부영상회', '사람165', '7', '010-0101-0265', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 338, 'https://tagdetail.com/v/-OwtJIueyut', '안녕하세요. 부영상회입니다.', '#165를 팝니다.', 'http://localhost:8092/file/images/206.jpeg', '생활잡화', 'http://118.67.128.240:4365/jejumarket'),
+	(207, '산양방앗간', '사람166', '7', '010-0101-0266', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 339, 'https://tagdetail.com/v/_EAiBlCrMUw', '안녕하세요. 산양방앗간입니다.', '#166를 팝니다.', 'http://localhost:8092/file/images/207.jpeg', '상회/특산물', 'http://118.67.128.240:4366/jejumarket'),
+	(208, '우정정육마트', '사람167', '7', '010-0101-0267', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 340, 'https://tagdetail.com/v/lEc1mlJvZRn', '안녕하세요. 우정정육마트입니다.', '#167를 팝니다.', 'http://localhost:8092/file/images/208.jpeg', '정육', 'http://118.67.128.240:4367/jejumarket'),
+	(209, '뽕끄랑주전부리', '사람168', '7', '010-0101-0268', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 341, 'https://tagdetail.com/v/4XMDKWmFiTH', '안녕하세요. 뽕끄랑주전부리입니다.', '#168를 팝니다.', 'http://localhost:8092/file/images/209.jpeg', '식사 및 음료', 'http://118.67.128.240:4368/jejumarket'),
+	(210, '청해수산', '사람169', '7', '010-0101-0269', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 342, 'https://tagdetail.com/v/UYJZVqy3UEe', '안녕하세요. 청해수산입니다.', '#169를 팝니다.', 'http://localhost:8092/file/images/210.jpeg', '수산', 'http://118.67.128.240:4369/jejumarket'),
+	(211, '서귀포해산물', '사람170', '7', '010-0101-0270', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 343, 'https://tagdetail.com/v/fnLz3j1Jada', '안녕하세요. 서귀포해산물입니다.', '#170를 팝니다.', 'http://localhost:8092/file/images/211.jpeg', '수산', 'http://118.67.128.240:4370/jejumarket'),
+	(212, '골목', '사람171', '7', '010-0101-0271', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 344, '', '안녕하세요. 골목입니다.', '#171를 팝니다.', '', '식사 및 음료', 'http://118.67.128.240:4371/jejumarket'),
+	(213, '팡', '사람172', '7', '010-0101-0272', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 345, 'https://tagdetail.com/v/2DyjCOHtiqj', '안녕하세요. 팡입니다.', '#172를 팝니다.', 'http://localhost:8092/file/images/213.jpeg', '생활잡화', 'http://118.67.128.240:4372/jejumarket'),
+	(214, '목화백화점', '사람173', '7', '010-0101-0273', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 346, '', '안녕하세요. 목화백화점입니다.', '#173를 팝니다.', '', '생활잡화', 'http://118.67.128.240:4373/jejumarket'),
+	(215, '우리패션', '사람174', '7', '010-0101-0274', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 347, 'https://tagdetail.com/v/hkc2_1RdVv9', '안녕하세요. 우리패션입니다.', '#174를 팝니다.', 'http://localhost:8092/file/images/215.jpeg', '생활잡화', 'http://118.67.128.240:4374/jejumarket'),
+	(216, '진도김치', '사람175', '7', '010-0101-0275', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 348, 'https://tagdetail.com/v/pxF-mMuEJSg', '안녕하세요. 진도김치입니다.', '#175를 팝니다.', 'http://localhost:8092/file/images/216.jpeg', '젓갈/김치', 'http://118.67.128.240:4375/jejumarket'),
+	(217, '들령가게', '사람176', '7', '010-0101-0276', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 349, 'https://tagdetail.com/v/ntygFWQQicQ', '안녕하세요. 들령가게입니다.', '#176를 팝니다.', 'http://localhost:8092/file/images/217.jpeg', '생활잡화', 'http://118.67.128.240:4376/jejumarket'),
+	(218, '우산해산물', '사람177', '7', '010-0101-0277', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 350, 'https://tagdetail.com/v/XoZRjmpfeBv', '안녕하세요. 우산해산물입니다.', '#177를 팝니다.', 'http://localhost:8092/file/images/218.jpeg', '수산', 'http://118.67.128.240:4377/jejumarket'),
+	(219, '새마을수산', '사람178', '7', '010-0101-0278', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 351, 'https://tagdetail.com/v/n3sYbaas89d', '안녕하세요. 새마을수산입니다.', '#178를 팝니다.', 'http://localhost:8092/file/images/219.jpeg', '수산', 'http://118.67.128.240:4378/jejumarket'),
+	(220, '올레모자', '사람179', '7', '010-0101-0279', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 352, 'https://tagdetail.com/v/8uMkaq_mq8O', '안녕하세요. 올레모자입니다.', '#179를 팝니다.', 'http://localhost:8092/file/images/220.jpeg', '생활잡화', 'http://118.67.128.240:4379/jejumarket'),
+	(221, '올레메리야스', '사람180', '7', '010-0101-0280', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 353, 'https://tagdetail.com/v/OXDBuu_0h_w', '안녕하세요. 올레메리야스입니다.', '#180를 팝니다.', 'http://localhost:8092/file/images/221.jpeg', '생활잡화', 'http://118.67.128.240:4380/jejumarket'),
+	(222, '님프만', '사람181', '7', '010-0101-0281', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 354, 'https://tagdetail.com/v/PZ1fSaYJ8Nv', '안녕하세요. 님프만입니다.', '#181를 팝니다.', 'http://localhost:8092/file/images/222.jpeg', '생활잡화', 'http://118.67.128.240:4381/jejumarket'),
+	(223, '보리수화장품', '사람182', '7', '010-0101-0282', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 355, 'https://tagdetail.com/v/WqO9ZPVpdZT', '안녕하세요. 보리수화장품입니다.', '#182를 팝니다.', 'http://localhost:8092/file/images/223.jpeg', '생활잡화', 'http://118.67.128.240:4382/jejumarket'),
+	(224, '진미고추상회', '사람183', '7', '010-0101-0283', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 356, 'https://tagdetail.com/v/p6nR0qTVTq-', '안녕하세요. 진미고추상회입니다.', '#183를 팝니다.', 'http://localhost:8092/file/images/224.jpeg', '농산물', 'http://118.67.128.240:4383/jejumarket'),
+	(225, '문평식품', '사람184', '7', '010-0101-0284', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 357, 'https://tagdetail.com/v/ykGSZJ0DWHJ', '안녕하세요. 문평식품입니다.', '#184를 팝니다.', 'http://localhost:8092/file/images/225.jpeg', '상회/특산물', 'http://118.67.128.240:4384/jejumarket'),
+	(226, '왕천파닭', '사람185', '7', '010-0101-0285', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 358, 'https://tagdetail.com/v/3cyeq2w-xoF', '안녕하세요. 왕천파닭입니다.', '#185를 팝니다.', 'http://localhost:8092/file/images/226.jpeg', '약/치킨', 'http://118.67.128.240:4385/jejumarket'),
+	(227, '양돈장목반정육점', '사람186', '7', '010-0101-0286', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 359, 'https://tagdetail.com/v/cTLQLz1eoKi', '안녕하세요. 양돈장목반정육점입니다.', '#186를 팝니다.', 'http://localhost:8092/file/images/227.jpeg', '정육', 'http://118.67.128.240:4386/jejumarket'),
+	(228, '영주참기름선식', '사람187', '7', '010-0101-0287', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 360, 'https://tagdetail.com/v/g-jeNRLwTud', '안녕하세요. 영주참기름선식입니다.', '#187를 팝니다.', 'http://localhost:8092/file/images/228.jpeg', '상회/특산물', 'http://118.67.128.240:4387/jejumarket'),
+	(229, 'BYC대도상회', '사람188', '7', '010-0101-0288', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 361, 'https://tagdetail.com/v/6CFRvz_3Fly', '안녕하세요. BYC대도상회입니다.', '#188를 팝니다.', 'http://localhost:8092/file/images/229.jpeg', '상회/특산물', 'http://118.67.128.240:4388/jejumarket'),
+	(230, '희란미용실', '사람189', '7', '010-0101-0289', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 362, 'https://tagdetail.com/v/0XwoPQRel33', '안녕하세요. 희란미용실입니다.', '#189를 팝니다.', 'http://localhost:8092/file/images/230.jpeg', '상회/특산물', 'http://118.67.128.240:4389/jejumarket'),
+	(231, '삼보신발할인마트', '사람190', '7', '010-0101-0290', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 363, 'https://tagdetail.com/v/tigqmVl2Sa7', '안녕하세요. 삼보신발할인마트입니다.', '#190를 팝니다.', 'http://localhost:8092/file/images/231.jpeg', '상회/특산물', 'http://118.67.128.240:4390/jejumarket'),
+	(232, '상용슈퍼', '사람191', '7', '010-0101-0291', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 364, 'https://tagdetail.com/v/YgEx8iBd3AP', '안녕하세요. 상용슈퍼입니다.', '#191를 팝니다.', 'http://localhost:8092/file/images/232.jpeg', '상회/특산물', 'http://118.67.128.240:4391/jejumarket'),
+	(233, '여러분수선', '사람192', '7', '010-0101-0292', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 365, 'https://tagdetail.com/v/6QLf5ZCMoZA', '안녕하세요. 여러분수선입니다.', '#192를 팝니다.', 'http://localhost:8092/file/images/233.jpeg', '상회/특산물', 'http://118.67.128.240:4392/jejumarket'),
+	(234, '나리패션', '사람193', '7', '010-0101-0293', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 366, 'https://tagdetail.com/v/WE9cPeyybdn', '안녕하세요. 나리패션입니다.', '#193를 팝니다.', 'http://localhost:8092/file/images/234.jpeg', '상회/특산물', 'http://118.67.128.240:4393/jejumarket'),
+	(235, '사모아수입품', '사람194', '7', '010-0101-0294', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 367, 'https://tagdetail.com/v/j4yEHkVmZrb', '안녕하세요. 사모아수입품입니다.', '#194를 팝니다.', 'http://localhost:8092/file/images/235.jpeg', '상회/특산물', 'http://118.67.128.240:4394/jejumarket'),
+	(236, '신안쌀상회', '사람195', '7', '010-0101-0295', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 368, 'https://tagdetail.com/v/GTajsJwB1E6', '안녕하세요. 신안쌀상회입니다.', '#195를 팝니다.', 'http://localhost:8092/file/images/236.jpeg', '상회/특산물', 'http://118.67.128.240:4395/jejumarket'),
+	(237, 'cafe272', '사람196', '7', '010-0101-0296', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 369, '', '안녕하세요. cafe272입니다.', '#196를 팝니다.', '', '식사 및 음료', 'http://118.67.128.240:4396/jejumarket'),
+	(238, '영남상회', '사람163', '7', '010-0101-0263', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 336, 'https://tagdetail.com/v/M-Vrcu3QeFy', '안녕하세요. 영남상회입니다.', '#163를 팝니다.', 'http://localhost:8092/file/images/238.jpeg', '상회/특산물', 'http://118.67.128.240:4363/jejumarket'),
+	(239, '시장떡집', '사람162', '7', '010-0101-0262', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 335, 'https://tagdetail.com/v/t7zQy-pm-lM', '안녕하세요. 시장떡집입니다.', '#162를 팝니다.', 'http://localhost:8092/file/images/239.jpeg', '상회/특산물', 'http://118.67.128.240:4362/jejumarket'),
+	(240, '유정기름집', '사람161', '7', '010-0101-0261', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 334, 'https://tagdetail.com/v/Ed19hqSax9O', '안녕하세요. 유정기름집입니다.', '#161를 팝니다.', 'http://localhost:8092/file/images/240.jpeg', '상회/특산물', 'http://118.67.128.240:4361/jejumarket'),
+	(241, '유나', '사람164', '7', '010-0101-0264', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 337, 'https://tagdetail.com/v/Skv2Sqsbnj4', '안녕하세요. 유나입니다.', '#164를 팝니다.', 'http://localhost:8092/file/images/241.jpeg', '생활잡화', 'http://118.67.128.240:4364/jejumarket'),
+	(242, '고흥상회', '사람160', '7', '010-0101-0260', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 333, 'https://tagdetail.com/v/0XTaqhd2wKc', '안녕하세요. 고흥상회입니다.', '#160를 팝니다.', 'http://localhost:8092/file/images/242.jpeg', '생활잡화', 'http://118.67.128.240:4360/jejumarket'),
+	(243, '은하종합장식', '사람159', '7', '010-0101-0259', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 332, 'https://tagdetail.com/v/-Zee4tdYIoH', '안녕하세요. 은하종합장식입니다.', '#159를 팝니다.', 'http://localhost:8092/file/images/243.jpeg', '생활잡화', 'http://118.67.128.240:4359/jejumarket'),
+	(244, '미진상회', '사람158', '7', '010-0101-0258', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 331, 'https://tagdetail.com/v/mDcBcl1SZ77', '안녕하세요. 미진상회입니다.', '#158를 팝니다.', 'http://localhost:8092/file/images/244.jpeg', '생활잡화', 'http://118.67.128.240:4358/jejumarket'),
+	(245, 'Lovedeco', '사람157', '7', '010-0101-0257', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 330, '', '안녕하세요. Lovedeco입니다.', '#157를 팝니다.', '', '생활잡화', 'http://118.67.128.240:4357/jejumarket'),
+	(246, '시집가는날', '사람156', '7', '010-0101-0256', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 329, 'https://tagdetail.com/v/N1QDK73qbS5', '안녕하세요. 시집가는날입니다.', '#156를 팝니다.', 'http://localhost:8092/file/images/246.jpeg', '생활잡화', 'http://118.67.128.240:4356/jejumarket'),
+	(247, '아이디알미싱', '사람155', '7', '010-0101-0255', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 328, 'https://tagdetail.com/v/M6RySOHnk_L', '안녕하세요. 아이디알미싱입니다.', '#155를 팝니다.', 'http://localhost:8092/file/images/247.jpeg', '생활잡화', 'http://118.67.128.240:4355/jejumarket'),
+	(248, '천혜제주', '사람154', '7', '010-0101-0254', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 327, 'https://tagdetail.com/v/aTO-v-cvVAj', '안녕하세요. 천혜제주입니다.', '#154를 팝니다.', 'http://localhost:8092/file/images/248.jpeg', '식사 및 음료', 'http://118.67.128.240:4354/jejumarket'),
+	(249, '사랑방고가구', '사람153', '7', '010-0101-0253', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 326, 'https://tagdetail.com/v/wOoowRWK173', '안녕하세요. 사랑방고가구입니다.', '#153를 팝니다.', 'http://localhost:8092/file/images/249.jpeg', '생활잡화', 'http://118.67.128.240:4353/jejumarket'),
+	(250, '진아옷수선', '사람152', '7', '010-0101-0252', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 325, 'https://tagdetail.com/v/umcmRkaBYrS', '안녕하세요. 진아옷수선입니다.', '#152를 팝니다.', 'http://localhost:8092/file/images/250.jpeg', '생활잡화', 'http://118.67.128.240:4352/jejumarket'),
+	(251, '광주상회', '사람151', '7', '010-0101-0251', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 324, 'https://tagdetail.com/v/Psmg4grV_ma', '안녕하세요. 광주상회입니다.', '#151를 팝니다.', 'http://localhost:8092/file/images/251.jpeg', '식사 및 음료', 'http://118.67.128.240:4351/jejumarket'),
+	(252, '우정신발상회', '사람150', '7', '010-0101-0250', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 323, 'https://tagdetail.com/v/2eAIYD5Bs06', '안녕하세요. 우정신발상회입니다.', '#150를 팝니다.', 'http://localhost:8092/file/images/252.jpeg', '생활잡화', 'http://118.67.128.240:4350/jejumarket'),
+	(253, '영튀김', '사람149', '7', '010-0101-0249', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 322, 'https://tagdetail.com/v/zm07_nw-tOU', '안녕하세요. 영튀김입니다.', '#149를 팝니다.', 'http://localhost:8092/file/images/253.jpeg', '식사 및 음료', 'http://118.67.128.240:4349/jejumarket'),
+	(254, '초록농산물판매장', '사람148', '7', '010-0101-0248', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 321, '', '안녕하세요. 초록농산물판매장입니다.', '#148를 팝니다.', '', '농산물', 'http://118.67.128.240:4348/jejumarket'),
+	(255, '새마을할머니상점', '사람147', '7', '010-0101-0247', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 320, 'https://tagdetail.com/v/gIE-eHG2Al3', '안녕하세요. 새마을할머니상점입니다.', '#147를 팝니다.', 'http://localhost:8092/file/images/255.jpeg', '식사 및 음료', 'http://118.67.128.240:4347/jejumarket'),
+	(256, '봥갑서', '사람146', '7', '010-0101-0246', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 319, 'https://tagdetail.com/v/blbvUmvO1Si', '안녕하세요. 봥갑서입니다.', '#146를 팝니다.', 'http://localhost:8092/file/images/256.jpeg', '생활잡화', 'http://118.67.128.240:4346/jejumarket'),
+	(257, '마농통닭', '사람145', '7', '010-0101-0245', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 318, 'https://tagdetail.com/v/MoaAyrwaaKd', '안녕하세요. 마농통닭입니다.', '#145를 팝니다.', 'http://localhost:8092/file/images/257.jpeg', '약/치킨', 'http://118.67.128.240:4345/jejumarket'),
+	(258, '금산약초', '사람144', '7', '010-0101-0244', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 317, 'https://tagdetail.com/v/9BpydUZv3ax', '안녕하세요. 금산약초입니다.', '#144를 팝니다.', 'http://localhost:8092/file/images/258.jpeg', '약/치킨', 'http://118.67.128.240:4344/jejumarket'),
+	(259, '2번통닭', '사람143', '7', '010-0101-0243', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 316, 'https://tagdetail.com/v/WraPe_MhRBq', '안녕하세요. 2번통닭입니다.', '#143를 팝니다.', 'http://localhost:8092/file/images/259.jpeg', '약/치킨', 'http://118.67.128.240:4343/jejumarket'),
+	(260, '익산고추', '사람142', '7', '010-0101-0242', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 315, 'https://tagdetail.com/v/hoXnYBFg5Il', '안녕하세요. 익산고추입니다.', '#142를 팝니다.', 'http://localhost:8092/file/images/260.jpeg', '농산물', 'http://118.67.128.240:4342/jejumarket'),
+	(261, '인정식육', '사람141', '7', '010-0101-0241', '제주특별자치도 서귀포시 특별자치도 중앙로 62번길 18', 314, 'https://tagdetail.com/v/FhjGZkPttA8', '안녕하세요. 인정식육입니다.', '#141를 팝니다.', 'http://localhost:8092/file/images/261.jpeg', '정육', 'http://118.67.128.240:4341/jejumarket');
+
+-- 테이블 ollemarket.noticeboard 구조 내보내기
+CREATE TABLE IF NOT EXISTS `noticeboard` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL,
+  `date` varchar(255) NOT NULL,
+  `admin` varchar(255) NOT NULL,
+  `count` varchar(255) DEFAULT NULL,
+  `description` varchar(1000) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+
+-- 테이블 데이터 ollemarket.noticeboard:~0 rows (대략적) 내보내기
+
+-- 테이블 ollemarket.users 구조 내보내기
+CREATE TABLE IF NOT EXISTS `users` (
   `userId` varchar(255) NOT NULL,
-
   `password` varchar(255) NOT NULL,
-
   `email` varchar(255) DEFAULT NULL,
-
   `name` varchar(255) DEFAULT NULL,
-
   `role` varchar(255) DEFAULT NULL,
-
   `created_at` varchar(255) DEFAULT NULL,
-
   `last_login` varchar(255) DEFAULT NULL,
-
   `status` varchar(255) DEFAULT NULL,
-
   PRIMARY KEY (`userId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+-- 테이블 데이터 ollemarket.users:~1 rows (대략적) 내보내기
+REPLACE INTO `users` (`userId`, `password`, `email`, `name`, `role`, `created_at`, `last_login`, `status`) VALUES
+	('admin', 'admin123@', 'lhs192@valiantdata.com', '관리자', 'ADMIN', NULL, NULL, 'active');
 
-/*!40101 SET character_set_client = @saved_cs_client */;
+-- 테이블 ollemarket.users_roles 구조 내보내기
+CREATE TABLE IF NOT EXISTS `users_roles` (
+  `users_userId` varchar(255) NOT NULL,
+  `roles` varchar(255) DEFAULT NULL,
+  KEY `users_userId` (`users_userId`),
+  CONSTRAINT `users_roles_ibfk_1` FOREIGN KEY (`users_userId`) REFERENCES `users` (`userId`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 
+-- 테이블 데이터 ollemarket.users_roles:~1 rows (대략적) 내보내기
+REPLACE INTO `users_roles` (`users_userId`, `roles`) VALUES
+	('admin', 'ADMIN');
 
-
---
-
--- Dumping data for table `users`
-
---
-
-
-
-LOCK TABLES `users` WRITE;
-
-/*!40000 ALTER TABLE `users` DISABLE KEYS */;
-
-INSERT INTO `users` VALUES
-
-('admin','admin123@','admin@gmail.com','admin','ADMIN','2025-05-12 14:58:47',NULL,'active'),
-
-('user123','qwe123@@','lhs192@valiantdata.com','유저','ADMIN','2025-05-12 14:58:47','','inactive');
-
-/*!40000 ALTER TABLE `users_roles` ENABLE KEYS */;
-
-UNLOCK TABLES;
-
-
-
---
-
--- Dumping routines for database 'OlleMetaGame'
-
---
-
-Task 'MySQL dump' finished at Wed May 14 16:30:42 KST 2025
+/*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
+/*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
+/*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;
